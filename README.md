@@ -1,6 +1,9 @@
 # WunderTDD
 Wunderground weather TDD Swift
 
+Blog post about this App;
+    https://www.blog.willandnora.com/?p=130&preview=true
+    
 
 Logo usage;
     https://www.wunderground.com/weather/api/d/docs?d=resources/logo-usage-guide
@@ -9,7 +12,8 @@ Weather Icons;
     https://www.wunderground.com/weather/api/d/docs?d=resources/icon-sets
     
     I found some gif convert utility to use;
-        http://ioscake.com/how-to-load-gif-image-in-swift.html
+        http://ioscake.com/how-to-load-gif-image-in-swift.html - it fails to work
+        
 
     
     <h3 class="no-toc">Nighttime</h3>

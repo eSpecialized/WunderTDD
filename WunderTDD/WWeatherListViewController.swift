@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import SwiftyGif
 
 class WWeatherListViewController: UITableViewController, NSFetchedResultsControllerDelegate {
 
@@ -15,6 +16,8 @@ class WWeatherListViewController: UITableViewController, NSFetchedResultsControl
     var managedObjectContext: NSManagedObjectContext? = nil
 
     let weatherAPI = WWunderAPI()
+    
+    let gifManager = SwiftyGifManager(memoryLimit: 20)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -190,14 +193,13 @@ class WWeatherListViewController: UITableViewController, NSFetchedResultsControl
                 return
             }
             
-            weatherAPI.fetchIconData(icon: icon, completion: { (data, error) in
+            weatherAPI.fetchIconData(icon: icon, completion: { [unowned self] (data, error) in
 
                 //this library crashes. so looking else where for icons
-//                if let data = data {
-//                    if let gifImg = UIImage.gifImageWithData(data: data as NSData) {
-//                        cell.icon.image = gifImg
-//                    }
-//                }
+                if let data = data {
+                    let gifImg = UIImage.init(gifData: data)
+                    cell.icon.setGifImage(gifImg, manager: self.gifManager)
+                }
             })
         }
     }
