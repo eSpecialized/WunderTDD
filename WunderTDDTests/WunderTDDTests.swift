@@ -78,4 +78,20 @@ class WunderTDDTests: XCTestCase {
         }
     }
     
+    func testFindIconNames() {
+        let weatherAPI = WWunderAPI()
+        
+        let hazyurl = weatherAPI.findIconUrlString(iconName: "hazy")
+        let rainurl = weatherAPI.findIconUrlString(iconName: "rain")
+        let sunnysideupurl = weatherAPI.findIconUrlString(iconName: "sunnysideup")
+        XCTAssertNotNil(hazyurl, "Hazy icon URL not found!")
+        XCTAssertNotNil(rainurl, "Rain icon URL not found!")
+        XCTAssertNil(sunnysideupurl, "Error value returned which is invalid")
+        
+        
+        XCTAssertTrue(hazyurl! == "https://icons.wxug.com/i/c/d/hazy.gif", "URL does not match desired for hazy")
+        XCTAssertTrue(rainurl! == "https://icons.wxug.com/i/c/d/rain.gif", "URL does not match desired for hazy")
+        
+    }
+    
 }

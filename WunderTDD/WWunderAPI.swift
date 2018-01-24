@@ -87,22 +87,52 @@ class WWunderAPI: NSObject {
         "https://icons.wxug.com/i/c/d/rain.gif",
         "https://icons.wxug.com/i/c/d/snow.gif",
         "https://icons.wxug.com/i/c/d/sunny.gif",
-        "https://icons.wxug.com/i/c/d/tstorms.gif"
+        "https://icons.wxug.com/i/c/d/tstorms.gif",
+        "https://icons.wxug.com/i/c/d/nt_chanceflurries.gif",
+        "https://icons.wxug.com/i/c/d/nt_chancerain.gif",
+        "https://icons.wxug.com/i/c/d/nt_chancesleet.gif",
+        "https://icons.wxug.com/i/c/d/nt_chancesnow.gif",
+        "https://icons.wxug.com/i/c/d/nt_chancetstorms.gif",
+        "https://icons.wxug.com/i/c/d/nt_clear.gif",
+        "https://icons.wxug.com/i/c/d/nt_cloudy.gif",
+        "https://icons.wxug.com/i/c/d/nt_flurries.gif",
+        "https://icons.wxug.com/i/c/d/nt_fog.gif",
+        "https://icons.wxug.com/i/c/d/nt_hazy.gif",
+        "https://icons.wxug.com/i/c/d/nt_mostlycloudy.gif",
+        "https://icons.wxug.com/i/c/d/nt_mostlysunny.gif",
+        "https://icons.wxug.com/i/c/d/nt_partlycloudy.gif",
+        "https://icons.wxug.com/i/c/d/nt_partlysunny.gif",
+        "https://icons.wxug.com/i/c/d/nt_sleet.gif",
+        "https://icons.wxug.com/i/c/d/nt_rain.gif",
+        "https://icons.wxug.com/i/c/d/nt_snow.gif",
+        "https://icons.wxug.com/i/c/d/nt_sunny.gif",
+        "https://icons.wxug.com/i/c/d/nt_tstorms.gif",
+        "https://icons.wxug.com/i/c/d/nt_cloudy.gif",
+        "https://icons.wxug.com/i/c/d/nt_partlycloudy.gif"
     ]
     
-    func fetchIconData(icon: String, completion: @escaping (Data?, Error?) -> Void )
+    func findIconUrlString(iconName: String) -> String?
     {
         var iconStringResult : String?
         
-        let iconName = icon + ".gif"
+        let iconName = iconName + ".gif"
         for thisString in weatherIconUrls {
-            if thisString.hasSuffix(iconName) {
-                iconStringResult = thisString
-                break
+            let urlComps = URLComponents(string: thisString)
+            let pathComps = urlComps?.path.components(separatedBy: CharacterSet(charactersIn: "/"))
+            if let theLastComp = pathComps?.last {
+                if theLastComp == iconName {
+                    iconStringResult = thisString
+                    break
+                }
             }
         }
-        
-        if let iconStringResult = iconStringResult, let iconUrl = URL(string: iconStringResult)
+        return iconStringResult
+    }
+    
+    
+    func fetchIconData(icon: String, completion: @escaping (Data?, Error?) -> Void )
+    {
+        if let iconStringResult = findIconUrlString(iconName:icon), let iconUrl = URL(string: iconStringResult)
         {
             let request = URLRequest(url: iconUrl )
             
@@ -115,7 +145,6 @@ class WWunderAPI: NSObject {
         }
     }
 
-    //http://api.wunderground.com/api/\(apikey)/animatedradar/animatedsatellite/q/MI/Ann_Arbor.gif?num=6&delay=50&interval=30
     func fetchRadarAndSatGifData(inCity: String, inState: String, completion: @escaping (Data?, Error?) -> Void) {
         guard let apiKey = WWunderAPI.getApiKey()  else {
             print("Configuration needed for API key")
