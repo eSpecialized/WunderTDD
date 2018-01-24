@@ -1,14 +1,16 @@
 # WunderTDD
-======
+-----
+
 Wunderground weather TDD Swift
 
-[Blog post about this App](http://www.blog.willandnora.com/2018/01/24/ios-wunderground-weather-test-driven-design-with-swift-4-and-xctest/)
+[My Blog post about this App](http://www.blog.willandnora.com/2018/01/24/ios-wunderground-weather-test-driven-design-with-swift-4-and-xctest/)
 
-[Logo usage](https://www.wunderground.com/weather/api/d/docs?d=resources/logo-usage-guide)
+[Wunderground Logo usage](https://www.wunderground.com/weather/api/d/docs?d=resources/logo-usage-guide)
 
-[Weather Icons](https://www.wunderground.com/weather/api/d/docs?d=resources/icon-sets)
+[Wunderground Weather Icons](https://www.wunderground.com/weather/api/d/docs?d=resources/icon-sets)
 
 [Youtube video showing testing](https://youtu.be/gBEju-zPcjE)
+
 
 ## Synopsis
 ------
@@ -28,10 +30,13 @@ Technologies utilized:
 8. Xcode 9.2
 9. How to share code on github that requires API keys to work, by using UserDefaults to store the API key and a view to configure it by.
 
+
 ## Motivation
 ------
 As a way to contribute to open source community, and to demonstrate how easy TDD is to implement in just 6.5 hours in a functional app.
 More and more employeers want to see projects that feature TDD, including github open source projects. This was one way I can demonstrate those abilities.
+I've wanted to write a weather based application for years.
+To solidify XCTest and XCUITest usage in a project.
 
 ## Installation
 ------
@@ -47,15 +52,18 @@ More and more employeers want to see projects that feature TDD, including github
    A paste option will show up, and hit paste.
    Click back once done.
 
+
 ## Tests
 
-1. Your ready to click and Hold "Run" to show the wrench "Test" tool. Click that to run the tests sequentially.
+Click and Hold "Run" to show the wrench "Test" tool. Click that to run the tests sequentially.
+
 
 ## Contributors
 ------
 Feel free to fork this project and make additions and updates.
 
-Please use the following format guidelines when editing the document <http://styleguide.artandlogic.com/home>
+Please use the following format guidelines when editing the project and source code <http://styleguide.artandlogic.com/home>
+
 
 ## License
 ------
