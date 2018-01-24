@@ -17,7 +17,6 @@ Wunderground weather TDD Swift
 This is a demonstration App of TDD in a Swift App using built in XCTest.
 I did this to measure the time it takes to prototype out basic functionality, as such some error handling is not handled.
 The premise is that by writing an Application with TDD very little time is used writing actual tests and time is saved for other tasks at all future updates/refactors.
-Feel free to fork and use this base application.
 
 Technologies utilized:
 1. XCTest
@@ -68,6 +67,6 @@ Please use the following format guidelines when editing the project and source c
 ## License
 ------
   See the License file.
-  
+  SwiftyGif CocoaPod is MIT licensed <https://cocoapods.org/pods/SwiftyGif>
 
 
