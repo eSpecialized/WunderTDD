@@ -160,6 +160,7 @@ class WWeatherListViewController: UITableViewController, NSFetchedResultsControl
                 event.temperatureF = weatherStruct.currentObservation.temp_f
                 event.conditions = weatherStruct.currentObservation.currentWeatherString
                 event.windMPH = weatherStruct.currentObservation.wind_mph
+                event.icon = weatherStruct.currentObservation.icon
                 
                 let context = self.fetchedResultsController.managedObjectContext
                 do {
@@ -183,6 +184,22 @@ class WWeatherListViewController: UITableViewController, NSFetchedResultsControl
         cell.wind.text = String(event.windMPH) + "MPH"
         cell.temperature.text = String(event.temperatureF) + "F"
         cell.conditions.text = event.conditions
+        
+        if let icon = event.icon {
+            if icon == "..." {
+                return
+            }
+            
+            weatherAPI.fetchIconData(icon: icon, completion: { (data, error) in
+
+                //this library crashes. so looking else where for icons
+//                if let data = data {
+//                    if let gifImg = UIImage.gifImageWithData(data: data as NSData) {
+//                        cell.icon.image = gifImg
+//                    }
+//                }
+            })
+        }
     }
 
     // MARK: - Fetched results controller

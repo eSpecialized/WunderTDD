@@ -26,6 +26,8 @@ public struct currentObservationStruct: Codable {
     public var temp_f: Double
     public var temp_c: Double
     public var wind_mph: Double
+    public var icon: String
+    public var icon_url: URL
     
     enum CodingKeys: String, CodingKey {
         case displayLocation = "display_location"
@@ -36,6 +38,8 @@ public struct currentObservationStruct: Codable {
         case temp_f
         case temp_c
         case wind_mph
+        case icon
+        case icon_url
     }
 }
 

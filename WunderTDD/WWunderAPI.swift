@@ -68,4 +68,50 @@ class WWunderAPI: NSObject {
         dataTask.resume()
         
     }
+    
+    let weatherIconUrls = ["https://icons.wxug.com/i/c/d/chanceflurries.gif",
+        "https://icons.wxug.com/i/c/d/chancerain.gif",
+        "https://icons.wxug.com/i/c/d/chancesleet.gif",
+        "https://icons.wxug.com/i/c/d/chancesnow.gif",
+        "https://icons.wxug.com/i/c/d/chancetstorms.gif",
+        "https://icons.wxug.com/i/c/d/clear.gif",
+        "https://icons.wxug.com/i/c/d/cloudy.gif",
+        "https://icons.wxug.com/i/c/d/flurries.gif",
+        "https://icons.wxug.com/i/c/d/fog.gif",
+        "https://icons.wxug.com/i/c/d/hazy.gif",
+        "https://icons.wxug.com/i/c/d/mostlycloudy.gif",
+        "https://icons.wxug.com/i/c/d/mostlysunny.gif",
+        "https://icons.wxug.com/i/c/d/partlycloudy.gif",
+        "https://icons.wxug.com/i/c/d/partlysunny.gif",
+        "https://icons.wxug.com/i/c/d/sleet.gif",
+        "https://icons.wxug.com/i/c/d/rain.gif",
+        "https://icons.wxug.com/i/c/d/snow.gif",
+        "https://icons.wxug.com/i/c/d/sunny.gif",
+        "https://icons.wxug.com/i/c/d/tstorms.gif"
+    ]
+    
+    func fetchIconData(icon: String, completion: @escaping (Data?, Error?) -> Void )
+    {
+        var iconStringResult : String?
+        
+        let iconName = icon + ".gif"
+        for thisString in weatherIconUrls {
+            if thisString.hasSuffix(iconName) {
+                iconStringResult = thisString
+                break
+            }
+        }
+        
+        if let iconStringResult = iconStringResult, let iconUrl = URL(string: iconStringResult)
+        {
+            let request = URLRequest(url: iconUrl )
+            
+            let dataTask = fSession.dataTask(with: request) { (data, response, error) in
+                DispatchQueue.main.async {
+                    completion(data, error)
+                }
+            }
+            dataTask.resume()
+        }
+    }
 }
