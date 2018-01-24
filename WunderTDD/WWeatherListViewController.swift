@@ -17,10 +17,8 @@ class WWeatherListViewController: UITableViewController, NSFetchedResultsControl
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        navigationItem.leftBarButtonItem = editButtonItem
-
-        let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(insertNewObject(_:)))
+        
+        let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addClicked(_:)))
         navigationItem.rightBarButtonItem = addButton
         if let split = splitViewController {
             let controllers = split.viewControllers
@@ -31,21 +29,49 @@ class WWeatherListViewController: UITableViewController, NSFetchedResultsControl
     override func viewWillAppear(_ animated: Bool) {
         clearsSelectionOnViewWillAppear = splitViewController!.isCollapsed
         super.viewWillAppear(animated)
+        
+        self.navigationController?.navigationBar.tintColor = UIColor.blue
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    @objc
+    func addClicked(_ sender: Any) {
+        
+        let alertAdd = UIAlertController(title: "Add Location", message: "City, ST format", preferredStyle: .alert)
+        
+        alertAdd.addTextField { (textField) in
+            textField.placeholder = "City, ST"
+        }
+        
+        let actionOk = UIAlertAction(title: "Ok", style: .default) { [unowned self] (action) in
+            if let cityState = alertAdd.textFields?.first?.text {
+                self.insertNewObject(cityState)
+            }
+        }
+        
+        let actionCancel = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
+        
+        alertAdd.addAction(actionOk)
+        alertAdd.addAction(actionCancel)
+        
+        present(alertAdd, animated: true, completion: nil)
+        
+        
+    }
 
     @objc
-    func insertNewObject(_ sender: Any) {
+    func insertNewObject(_ cityState: String) {
         let context = self.fetchedResultsController.managedObjectContext
         let newEvent = Event(context: context)
              
         // If appropriate, configure the new managed object.
         newEvent.timestamp = Date()
-
+        newEvent.cityState = cityState
+        
         // Save the context.
         do {
             try context.save()
@@ -111,7 +137,8 @@ class WWeatherListViewController: UITableViewController, NSFetchedResultsControl
     }
 
     func configureCell(_ cell: UITableViewCell, withEvent event: Event) {
-        cell.textLabel!.text = event.timestamp!.description
+        cell.detailTextLabel!.text = event.timestamp!.description
+        cell.textLabel!.text = event.cityState
     }
 
     // MARK: - Fetched results controller

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3542A6282017FEA0002E8A8E /* WWunderAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3542A6272017FEA0002E8A8E /* WWunderAPI.swift */; };
 		35B825E42017F5FE003A4CA1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B825E32017F5FE003A4CA1 /* AppDelegate.swift */; };
 		35B825E72017F5FE003A4CA1 /* WunderTDD.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 35B825E52017F5FE003A4CA1 /* WunderTDD.xcdatamodeld */; };
 		35B825E92017F5FE003A4CA1 /* WWeatherListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B825E82017F5FE003A4CA1 /* WWeatherListViewController.swift */; };
@@ -16,6 +17,9 @@
 		35B825F32017F5FE003A4CA1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35B825F12017F5FE003A4CA1 /* LaunchScreen.storyboard */; };
 		35B825FE2017F5FE003A4CA1 /* WunderTDDTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B825FD2017F5FE003A4CA1 /* WunderTDDTests.swift */; };
 		35B826092017F5FE003A4CA1 /* WunderTDDUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B826082017F5FE003A4CA1 /* WunderTDDUITests.swift */; };
+		35B826172017F9D0003A4CA1 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 35B826162017F9D0003A4CA1 /* README.md */; };
+		35B826192017F9D8003A4CA1 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 35B826182017F9D8003A4CA1 /* LICENSE */; };
+		35B8261B2017FAFC003A4CA1 /* WConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B8261A2017FAFC003A4CA1 /* WConfigurationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3542A6272017FEA0002E8A8E /* WWunderAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WWunderAPI.swift; sourceTree = "<group>"; };
 		35B825E02017F5FE003A4CA1 /* WunderTDD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WunderTDD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		35B825E32017F5FE003A4CA1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		35B825E62017F5FE003A4CA1 /* WunderTDD.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WunderTDD.xcdatamodel; sourceTree = "<group>"; };
@@ -51,6 +56,9 @@
 		35B826042017F5FE003A4CA1 /* WunderTDDUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WunderTDDUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		35B826082017F5FE003A4CA1 /* WunderTDDUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WunderTDDUITests.swift; sourceTree = "<group>"; };
 		35B8260A2017F5FE003A4CA1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		35B826162017F9D0003A4CA1 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		35B826182017F9D8003A4CA1 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		35B8261A2017FAFC003A4CA1 /* WConfigurationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WConfigurationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +89,8 @@
 		35B825D72017F5FE003A4CA1 = {
 			isa = PBXGroup;
 			children = (
+				35B826182017F9D8003A4CA1 /* LICENSE */,
+				35B826162017F9D0003A4CA1 /* README.md */,
 				35B825E22017F5FE003A4CA1 /* WunderTDD */,
 				35B825FC2017F5FE003A4CA1 /* WunderTDDTests */,
 				35B826072017F5FE003A4CA1 /* WunderTDDUITests */,
@@ -104,6 +114,8 @@
 				35B825E32017F5FE003A4CA1 /* AppDelegate.swift */,
 				35B825E82017F5FE003A4CA1 /* WWeatherListViewController.swift */,
 				35B825EA2017F5FE003A4CA1 /* WWeatherDetailViewController.swift */,
+				35B8261A2017FAFC003A4CA1 /* WConfigurationViewController.swift */,
+				3542A6272017FEA0002E8A8E /* WWunderAPI.swift */,
 				35B825EC2017F5FE003A4CA1 /* Main.storyboard */,
 				35B825EF2017F5FE003A4CA1 /* Assets.xcassets */,
 				35B825F12017F5FE003A4CA1 /* LaunchScreen.storyboard */,
@@ -240,7 +252,9 @@
 			files = (
 				35B825F32017F5FE003A4CA1 /* LaunchScreen.storyboard in Resources */,
 				35B825F02017F5FE003A4CA1 /* Assets.xcassets in Resources */,
+				35B826172017F9D0003A4CA1 /* README.md in Resources */,
 				35B825EE2017F5FE003A4CA1 /* Main.storyboard in Resources */,
+				35B826192017F9D8003A4CA1 /* LICENSE in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,6 +283,8 @@
 				35B825E72017F5FE003A4CA1 /* WunderTDD.xcdatamodeld in Sources */,
 				35B825E92017F5FE003A4CA1 /* WWeatherListViewController.swift in Sources */,
 				35B825EB2017F5FE003A4CA1 /* WWeatherDetailViewController.swift in Sources */,
+				35B8261B2017FAFC003A4CA1 /* WConfigurationViewController.swift in Sources */,
+				3542A6282017FEA0002E8A8E /* WWunderAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
