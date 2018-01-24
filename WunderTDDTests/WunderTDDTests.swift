@@ -36,9 +36,12 @@ class WunderTDDTests: XCTestCase {
                 expectedJSONString.fulfill()
             }
             
-            if let WeatherStruct = WeatherStruct {
+            if let weatherStruct = WeatherStruct {
                 
-                //XCTAssert(<#T##expression: Bool##Bool#>)
+                XCTAssert(weatherStruct.currentObservation.displayLocation.city == "Portland", "Wrong city returned from API or error")
+                
+                XCTAssert(weatherStruct.currentObservation.displayLocation.state == "OR", "Wrong state returned from API or error")
+                
                 
                 expectedJSONStruct.fulfill()
             }
@@ -53,10 +56,25 @@ class WunderTDDTests: XCTestCase {
         
     }
     
-    func testPerformanceExample() {
+    func testWeatherFetchPerformance() {
         // This is an example of a performance test case.
         self.measure {
+            let expectedJSONString = expectation(description: "Weather jsonString wasn't fetched properly, check all settings")
             // Put the code you want to measure the time of here.
+            let weatherAPI = WWunderAPI()
+            weatherAPI.fetchWeather(inCity: "Salem", inState: "OR") { (WeatherStruct: WeatherJSONStruct?, jsonString: String?, error: Error?) in
+                
+                if let jsonString = jsonString {
+                    print(jsonString)
+                    expectedJSONString.fulfill()
+                }
+            }
+            
+            waitForExpectations(timeout: 30, handler: { (error) in
+                if let error = error {
+                    print(error)
+                }
+            })
         }
     }
     

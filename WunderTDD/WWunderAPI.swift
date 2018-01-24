@@ -47,8 +47,21 @@ class WWunderAPI: NSObject {
         let dataTask = fSession.dataTask(with: request) { (data, response, error) in
             
             if let data = data {
-                let jsonString = String(data: data, encoding: .utf8)
-                completion(nil,jsonString,nil)
+                
+                do {
+                    let decoder = JSONDecoder()
+                    let jsonStruct = try decoder.decode(WeatherJSONStruct.self, from: data)
+                    
+                    let jsonString = String(data: data, encoding: .utf8)
+                    DispatchQueue.main.async {
+                        completion(jsonStruct,jsonString,error)
+                    }
+                    
+                } catch let error {
+                    print(error)
+                }
+                
+                
             }
             
         }
