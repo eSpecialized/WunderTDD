@@ -21,9 +21,25 @@ class WunderTDDTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
+    func testFetchWeather() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
+    
+        let expected = expectation(description: "Weather information wasn't fetched properly, check all settings")
+        
+        let weatherAPI = WWunderAPI()
+        weatherAPI.fetchWeather("Portland", "OR") { (WWunderStruct, error) in
+            
+            
+            expected.fulfill()
+        }
+        
+        waitForExpectations(timeout: 30) { (error) in
+            if let error = error {
+                print(error)
+            }
+        }
+        
     }
     
     func testPerformanceExample() {
