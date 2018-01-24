@@ -12,7 +12,7 @@ class WWunderAPI: NSObject {
 
     static let kWundergroundApiKey = "kWundergroundApiKey"
     
-    let session = URLSession(configuration: URLSessionConfiguration.default)
+    let fSession = URLSession(configuration: URLSessionConfiguration.default)
     
     public static func saveApiKey(inApiKey: String) {
         let ud = UserDefaults.standard
@@ -33,13 +33,18 @@ class WWunderAPI: NSObject {
             return
         }
         
-        let state = inState.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlPathAllowed)!
-        let city = inCity.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlPathAllowed)!
+        let stateEncoded = inState.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlPathAllowed)!
+        let cityEncoded = inCity.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlPathAllowed)!
         
-        let url = URL(string: "https://api.wunderground.com/api/\(apiKey)/geolookup/conditions/q/\(state)/\(city).json")!
+        //this first url looks at all weather stations.
+        //let url = URL(string: "https://api.wunderground.com/api/\(apiKey)/geolookup/conditions/q/\(stateEncoded)/\(cityEncoded).json")!
+        
+        //more general purpose api
+        let url = URL(string: "https://api.wunderground.com/api/" + apiKey + "/conditions/q/\(stateEncoded)/\(cityEncoded).json")!
+        
         let request = URLRequest(url: url )
         
-        let dataTask = session.dataTask(with: request) { (data, response, error) in
+        let dataTask = fSession.dataTask(with: request) { (data, response, error) in
             
             if let data = data {
                 let jsonString = String(data: data, encoding: .utf8)

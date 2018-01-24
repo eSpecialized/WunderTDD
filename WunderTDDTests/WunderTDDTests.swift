@@ -25,13 +25,24 @@ class WunderTDDTests: XCTestCase {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     
-        let expected = expectation(description: "Weather information wasn't fetched properly, check all settings")
+        let expectedJSONString = expectation(description: "Weather jsonString wasn't fetched properly, check all settings")
+        let expectedJSONStruct = expectation(description: "Weather struct wasn't fetched properly, check all settings")
         
         let weatherAPI = WWunderAPI()
-        weatherAPI.fetchWeather("Portland", "OR") { (WWunderStruct, error) in
+        weatherAPI.fetchWeather(inCity: "Portland", inState: "OR") { (WeatherStruct: WeatherJSONStruct?, jsonString: String?, error: Error?) in
             
+            if let jsonString = jsonString {
+                print(jsonString)
+                expectedJSONString.fulfill()
+            }
             
-            expected.fulfill()
+            if let WeatherStruct = WeatherStruct {
+                
+                //XCTAssert(<#T##expression: Bool##Bool#>)
+                
+                expectedJSONStruct.fulfill()
+            }
+            
         }
         
         waitForExpectations(timeout: 30) { (error) in
