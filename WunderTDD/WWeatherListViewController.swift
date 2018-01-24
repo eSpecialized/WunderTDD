@@ -129,6 +129,7 @@ class WWeatherListViewController: UITableViewController, NSFetchedResultsControl
         let cell = tableView.dequeueReusableCell(withIdentifier: "WeatherCell", for: indexPath) as! WWeatheTableViewCell
         let event = fetchedResultsController.object(at: indexPath)
         configureCell(cell, withEvent: event)
+        updateCell(cell, withEvent: event)
         return cell
     }
 
@@ -152,24 +153,36 @@ class WWeatherListViewController: UITableViewController, NSFetchedResultsControl
             }
         }
     }
+    
+    func updateCell(_ cell: WWeatheTableViewCell, withEvent event: Event) {
+        weatherAPI.fetchWeather(inCity: event.city!, inState: event.state!) { [unowned self] (weatherStruct, inJSONString, error) in
+            if let weatherStruct = weatherStruct {
+                event.temperatureF = weatherStruct.currentObservation.temp_f
+                event.conditions = weatherStruct.currentObservation.currentWeatherString
+                event.windMPH = weatherStruct.currentObservation.wind_mph
+                
+                let context = self.fetchedResultsController.managedObjectContext
+                do {
+                    try context.save()
+                } catch {
+                    // Replace this implementation with code to handle the error appropriately.
+                    // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+                    let nserror = error as NSError
+                    fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+                }
+                
+                self.configureCell(cell, withEvent: event)
+                
+            }
+        }
+    }
 
     func configureCell(_ cell: WWeatheTableViewCell, withEvent event: Event) {
-        
-        //show old info first
+
         cell.location.text = event.cityState
         cell.wind.text = String(event.windMPH) + "MPH"
         cell.temperature.text = String(event.temperatureF) + "F"
         cell.conditions.text = event.conditions
-     
-        
-        
-        weatherAPI.fetchWeather(inCity: event.city!, inState: event.state!) { (weatherStruct, inJSONString, error) in
-                if let weatherStruct = weatherStruct {
-                    
-                    cell.temperature.text = String(weatherStruct.currentObservation.temp_f) + "F"
-                    
-                }
-            }
     }
 
     // MARK: - Fetched results controller

@@ -55,7 +55,7 @@ class WunderTDDUITests: XCTestCase {
         XCTAssert(locationStringTest.waitForExistence(timeout: 5), "Failed to find the expected City, State in the table cells")
         XCTAssert(locationStringTest.label == locationString, "Location failed to populate properly")
         
-        let cellCountNow = fApp.tables.firstMatch.cells.count
+        var cellCountNow = fApp.tables.firstMatch.cells.count
         XCTAssert(cellCountNow > cellCountOrig , "Failed to add a new cell to the table")
         
         let windLabel = fApp.staticTexts["wind"]
@@ -66,6 +66,13 @@ class WunderTDDUITests: XCTestCase {
             let conditionsLabel = thisCell.staticTexts["conditions"]
             XCTAssert(conditionsLabel.label != "...", "Current conditions didn't populate in the UI error")
         }
+        
+        //remove the florence cell which is now at top
+        fApp.tables.firstMatch.cells.firstMatch.swipeLeft()
+        fApp.buttons["Delete"].tap()
+        cellCountNow = fApp.tables.firstMatch.cells.count
+        
+        XCTAssert(cellCountNow == cellCountOrig, "Failed to remove the newly added cell")
     }
     
 }
