@@ -14,6 +14,7 @@ class WWeatherListViewController: UITableViewController, NSFetchedResultsControl
     var detailViewController: WWeatherDetailViewController? = nil
     var managedObjectContext: NSManagedObjectContext? = nil
 
+    let weatherAPI = WWunderAPI()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +25,8 @@ class WWeatherListViewController: UITableViewController, NSFetchedResultsControl
             let controllers = split.viewControllers
             detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? WWeatherDetailViewController
         }
+        
+        self.tableView.rowHeight = UITableViewAutomaticDimension
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -71,6 +74,20 @@ class WWeatherListViewController: UITableViewController, NSFetchedResultsControl
         // If appropriate, configure the new managed object.
         newEvent.timestamp = Date()
         newEvent.cityState = cityState
+        newEvent.conditions = "..."
+        newEvent.realFeelC = 0
+        newEvent.realFeelF = 0
+        newEvent.temperatureF = 0
+        newEvent.temperatureC = 0
+        newEvent.city = "..."
+        newEvent.state = "..."
+        newEvent.windMPH = 0
+        
+        let comps = cityState.components(separatedBy: CharacterSet.punctuationCharacters)
+        
+        newEvent.city = comps.first!
+        let trimState = comps.last!.trimmingCharacters(in: CharacterSet.whitespaces)
+        newEvent.state = trimState
         
         // Save the context.
         do {
@@ -109,7 +126,7 @@ class WWeatherListViewController: UITableViewController, NSFetchedResultsControl
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "WeatherCell", for: indexPath) as! WWeatheTableViewCell
         let event = fetchedResultsController.object(at: indexPath)
         configureCell(cell, withEvent: event)
         return cell
@@ -136,9 +153,23 @@ class WWeatherListViewController: UITableViewController, NSFetchedResultsControl
         }
     }
 
-    func configureCell(_ cell: UITableViewCell, withEvent event: Event) {
-        cell.detailTextLabel!.text = event.timestamp!.description
-        cell.textLabel!.text = event.cityState
+    func configureCell(_ cell: WWeatheTableViewCell, withEvent event: Event) {
+        
+        //show old info first
+        cell.location.text = event.cityState
+        cell.wind.text = String(event.windMPH) + "MPH"
+        cell.temperature.text = String(event.temperatureF) + "F"
+        cell.conditions.text = event.conditions
+     
+        
+        
+        weatherAPI.fetchWeather(inCity: event.city!, inState: event.state!) { (weatherStruct, inJSONString, error) in
+                if let weatherStruct = weatherStruct {
+                    
+                    cell.temperature.text = String(weatherStruct.currentObservation.temp_f) + "F"
+                    
+                }
+            }
     }
 
     // MARK: - Fetched results controller
@@ -199,9 +230,9 @@ class WWeatherListViewController: UITableViewController, NSFetchedResultsControl
             case .delete:
                 tableView.deleteRows(at: [indexPath!], with: .fade)
             case .update:
-                configureCell(tableView.cellForRow(at: indexPath!)!, withEvent: anObject as! Event)
+                configureCell(tableView.cellForRow(at: indexPath!)! as! WWeatheTableViewCell, withEvent: anObject as! Event)
             case .move:
-                configureCell(tableView.cellForRow(at: indexPath!)!, withEvent: anObject as! Event)
+                configureCell(tableView.cellForRow(at: indexPath!)! as! WWeatheTableViewCell, withEvent: anObject as! Event)
                 tableView.moveRow(at: indexPath!, to: newIndexPath!)
         }
     }
