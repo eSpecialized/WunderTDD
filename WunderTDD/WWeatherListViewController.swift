@@ -15,9 +15,9 @@ class WWeatherListViewController: UITableViewController, NSFetchedResultsControl
     var detailViewController: WWeatherDetailViewController? = nil
     var managedObjectContext: NSManagedObjectContext? = nil
 
-    let weatherAPI = WWunderAPI()
+    let fWeatherAPI = WWunderAPI()
     
-    let gifManager = SwiftyGifManager(memoryLimit: 20)
+    let fGifManager = SwiftyGifManager(memoryLimit: 20)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,8 +30,18 @@ class WWeatherListViewController: UITableViewController, NSFetchedResultsControl
         }
         
         self.tableView.rowHeight = UITableViewAutomaticDimension
+        
+        refreshControl = UIRefreshControl()
+        refreshControl?.addTarget(self, action: #selector(WWeatherListViewController.refreshView), for: .valueChanged)
     }
 
+    @objc
+    func refreshView() {
+        refreshControl?.beginRefreshing()
+        self.tableView.reloadData()
+        refreshControl?.endRefreshing()
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         clearsSelectionOnViewWillAppear = splitViewController!.isCollapsed
         super.viewWillAppear(animated)
@@ -158,7 +168,8 @@ class WWeatherListViewController: UITableViewController, NSFetchedResultsControl
     }
     
     func updateCell(_ cell: WWeatheTableViewCell, withEvent event: Event) {
-        weatherAPI.fetchWeather(inCity: event.city!, inState: event.state!) { [unowned self] (weatherStruct, inJSONString, error) in
+        fWeatherAPI.fetchWeather(inCity: event.city!, inState: event.state!) { [unowned self] (weatherStruct, inJSONString, error) in
+            
             if let weatherStruct = weatherStruct {
                 event.temperatureF = weatherStruct.currentObservation.temp_f
                 event.conditions = weatherStruct.currentObservation.currentWeatherString
@@ -184,21 +195,21 @@ class WWeatherListViewController: UITableViewController, NSFetchedResultsControl
     func configureCell(_ cell: WWeatheTableViewCell, withEvent event: Event) {
 
         cell.location.text = event.cityState
-        cell.wind.text = String(event.windMPH) + "MPH"
+        cell.wind.text = "Wind: " + String(event.windMPH) + "MPH"
         cell.temperature.text = String(event.temperatureF) + "F"
-        cell.conditions.text = event.conditions
+        cell.conditions.text = event.conditions!
         
         if let icon = event.icon {
             if icon == "..." {
                 return
             }
             
-            weatherAPI.fetchIconData(icon: icon, completion: { [unowned self] (data, error) in
-
+            fWeatherAPI.fetchIconData(icon: icon, completion: { [unowned self] (data, error) in
+                
                 //this library crashes. so looking else where for icons
                 if let data = data {
                     let gifImg = UIImage.init(gifData: data)
-                    cell.icon.setGifImage(gifImg, manager: self.gifManager)
+                    cell.icon.setGifImage(gifImg, manager: self.fGifManager)
                 }
             })
         }

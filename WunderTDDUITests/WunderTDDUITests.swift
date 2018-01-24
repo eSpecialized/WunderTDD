@@ -30,8 +30,6 @@ class WunderTDDUITests: XCTestCase {
     }
     
     func testAddFunctionality() {
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
         
         let locationString = "Florence, OR"
         
@@ -55,7 +53,7 @@ class WunderTDDUITests: XCTestCase {
         XCTAssert(locationStringTest.waitForExistence(timeout: 5), "Failed to find the expected City, State in the table cells")
         XCTAssert(locationStringTest.label == locationString, "Location failed to populate properly")
         
-        var cellCountNow = fApp.tables.firstMatch.cells.count
+        let cellCountNow = fApp.tables.firstMatch.cells.count
         XCTAssert(cellCountNow > cellCountOrig , "Failed to add a new cell to the table")
         
         let windLabel = fApp.staticTexts["wind"]
@@ -67,12 +65,61 @@ class WunderTDDUITests: XCTestCase {
             XCTAssert(conditionsLabel.label != "...", "Current conditions didn't populate in the UI error")
         }
         
-        //remove the florence cell which is now at top
-        fApp.tables.firstMatch.cells.firstMatch.swipeLeft()
-        fApp.buttons["Delete"].tap()
-        cellCountNow = fApp.tables.firstMatch.cells.count
+
+    }
+    
+    func testDetailFunctionality() {
         
-        XCTAssert(cellCountNow == cellCountOrig, "Failed to remove the newly added cell")
+        let locationString = "Florence, OR"
+        
+        if let thisCell = supportFindCellByLocationLabel(location: locationString) {
+            thisCell.tap()
+        }
+        
+        //check navbar title, if the accessibility identifier isn't set, then it will have the title
+        let navBarIdent = fApp.navigationBars.element.identifier
+        XCTAssert(navBarIdent == locationString, "Failed to open proper cell row for this location")
+        
+        
+        //in the detail view, we have a label and a radar view
+        let radarview = fApp.images["radar"]
+        XCTAssert(radarview.waitForExistence(timeout: 10), "Radar view didn't show up error")
+        
+        let conditions = fApp.staticTexts["conditions"]
+        XCTAssert(conditions.waitForExistence(timeout: 10), "Failed to find conditions")
+        XCTAssertFalse(conditions.label == "...", "Conditions Label is default value error")
+    }
+    
+    func testPersistenceAndDelete() {
+        //remove the florence cell which is now at top
+        let locationString = "Florence, OR"
+        let cellCountOrig = fApp.tables.firstMatch.cells.count
+        
+        
+        if let thisCell = supportFindCellByLocationLabel(location: locationString) {
+            thisCell.swipeLeft()
+            fApp.buttons["Delete"].tap()
+        } else {
+            XCTAssert(false, "Failed to find the cell persisting across application launches")
+        }
+        
+        let cellCountNow = fApp.tables.firstMatch.cells.count
+        
+        XCTAssert(cellCountNow < cellCountOrig, "Failed to remove the cell")
+    }
+    
+    func supportFindCellByLocationLabel(location: String) -> XCUIElement?
+    {
+        let cellCount = fApp.tables.firstMatch.cells.count
+        
+        for i in 0..<cellCount {
+            let thisCell = fApp.tables.firstMatch.cells.element(boundBy: i)
+            let searchLabel = thisCell.staticTexts[location]
+            if searchLabel.exists {
+                return thisCell
+            }
+        }
+        return nil
     }
     
 }

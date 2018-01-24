@@ -114,4 +114,27 @@ class WWunderAPI: NSObject {
             dataTask.resume()
         }
     }
+
+    //http://api.wunderground.com/api/\(apikey)/animatedradar/animatedsatellite/q/MI/Ann_Arbor.gif?num=6&delay=50&interval=30
+    func fetchRadarAndSatGifData(inCity: String, inState: String, completion: @escaping (Data?, Error?) -> Void) {
+        guard let apiKey = WWunderAPI.getApiKey()  else {
+            print("Configuration needed for API key")
+            
+            return
+        }
+        
+        let stateEncoded = inState.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlPathAllowed)!
+        let cityEncoded = inCity.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlPathAllowed)!
+
+        let url = URL(string: "https://api.wunderground.com/api/" + apiKey + "/animatedradar/animatedsatellite/q/\(stateEncoded)/\(cityEncoded).gif?num=6&delay=50&interval=30")!
+        
+        let request = URLRequest(url: url )
+        
+        let dataTask = fSession.dataTask(with: request) { (data, response, error) in
+                DispatchQueue.main.async {
+                    completion(data, error)
+                }
+        }
+        dataTask.resume()
+    }
 }
