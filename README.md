@@ -32,10 +32,10 @@ Technologies utilized:
 
 ## Motivation
 ------
-⋅⋅* As a way to contribute to open source community, and to demonstrate how easy TDD is to implement in just 6.5 hours in a functional app.
-⋅⋅* More and more employers want to see projects that feature TDD, including GitHub open source projects. This was one way I can demonstrate those abilities.
-⋅⋅* I've wanted to write a weather-based application for years.
-⋅⋅* To solidify XCTest and XCUITest usage in a project.
+  * As a way to contribute to open source community, and to demonstrate how easy TDD is to implement in just 6.5 hours in a functional app.
+  * More and more employers want to see projects that feature TDD, including GitHub open source projects. This was one way I can demonstrate those abilities.
+  * I've wanted to write a weather-based application for years.
+  * To solidify XCTest and XCUITest usage in a project.
 
 ## Installation
 ------
@@ -47,9 +47,9 @@ Technologies utilized:
 3. You will need an API key from weather underground obtainable here <https://www.wunderground.com/weather/api/>
 
 4. Run the Application in the simulator once, click on "Config" on the main screen and in here you will paste the API Key
-   ⋅⋅* First, copy the API key on your mac, paste it with command + V in the simulator, then you double tap twice on the API Key field
-   ⋅⋅* A paste option will show up, and hit paste.
-   ⋅⋅* Click back once done.
+     * First, copy the API key on your mac, paste it with command + V in the simulator, then you double tap twice on the API Key field
+     * A paste option will show up, and hit paste.
+     * Click back once done.
 
 
 ## Tests
