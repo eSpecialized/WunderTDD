@@ -69,7 +69,7 @@ class WWunderAPI: NSObject {
         
     }
     
-    let weatherIconUrls = ["https://icons.wxug.com/i/c/d/chanceflurries.gif",
+    let weatherIconUrlStrings = ["https://icons.wxug.com/i/c/d/chanceflurries.gif",
         "https://icons.wxug.com/i/c/d/chancerain.gif",
         "https://icons.wxug.com/i/c/d/chancesleet.gif",
         "https://icons.wxug.com/i/c/d/chancesnow.gif",
@@ -113,20 +113,9 @@ class WWunderAPI: NSObject {
     
     func findIconUrlString(iconName: String) -> String?
     {
-        var iconStringResult : String?
-        
-        let iconName = iconName + ".gif"
-        for thisString in weatherIconUrls {
-            let urlComps = URLComponents(string: thisString)
-            let pathComps = urlComps?.path.components(separatedBy: CharacterSet(charactersIn: "/"))
-            if let theLastComp = pathComps?.last {
-                if theLastComp == iconName {
-                    iconStringResult = thisString
-                    break
-                }
-            }
-        }
-        return iconStringResult
+        return weatherIconUrlStrings.filter {
+            $0.urlPathComponentsFromString(separator: "/")?.last == iconName + ".gif"
+            }.first
     }
     
     
