@@ -8,8 +8,22 @@
 
 import Foundation
 
+/**
+ # WeatherJSONStruct
+ ---
+ It all starts with the WeatherJSONStruct
+ - Author: William Thompson
 
+ Code Example -
+
+     let jsonStruct = try JSONDecoder().decode(WeatherJSONStruct.self, from: data)
+---
+ */
 public struct WeatherJSONStruct: Codable {
+/**
+    Use the currentObservation, it is the top key to the entire JSON tree of data
+
+*/
     public var currentObservation:currentObservationStruct
     
     enum CodingKeys: String, CodingKey {
