@@ -12,6 +12,13 @@
 		3542A62A20180831002E8A8E /* WeatherJSONStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3542A62920180831002E8A8E /* WeatherJSONStruct.swift */; };
 		3542A62D20181906002E8A8E /* WWeatheTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3542A62C20181906002E8A8E /* WWeatheTableViewCell.swift */; };
 		35509A7E201B0B1C00669891 /* String+URLComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35509A7D201B0B1C00669891 /* String+URLComponents.swift */; };
+		35586FC020294CB1001D3BF2 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35586FBE20294CB1001D3BF2 /* Interface.storyboard */; };
+		35586FC220294CB1001D3BF2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35586FC120294CB1001D3BF2 /* Assets.xcassets */; };
+		35586FC920294CB1001D3BF2 /* WatchTDD Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 35586FC820294CB1001D3BF2 /* WatchTDD Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		35586FD020294CB1001D3BF2 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35586FCF20294CB1001D3BF2 /* ExtensionDelegate.swift */; };
+		35586FD220294CB1001D3BF2 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35586FD120294CB1001D3BF2 /* NotificationController.swift */; };
+		35586FD420294CB1001D3BF2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35586FD320294CB1001D3BF2 /* Assets.xcassets */; };
+		35586FD920294CB1001D3BF2 /* WatchTDD.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 35586FBC20294CB1001D3BF2 /* WatchTDD.app */; };
 		35B825E42017F5FE003A4CA1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B825E32017F5FE003A4CA1 /* AppDelegate.swift */; };
 		35B825E72017F5FE003A4CA1 /* WunderTDD.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 35B825E52017F5FE003A4CA1 /* WunderTDD.xcdatamodeld */; };
 		35B825E92017F5FE003A4CA1 /* WWeatherListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B825E82017F5FE003A4CA1 /* WWeatherListViewController.swift */; };
@@ -27,6 +34,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		35586FCA20294CB1001D3BF2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 35B825D82017F5FE003A4CA1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 35586FC720294CB1001D3BF2;
+			remoteInfo = "WatchTDD Extension";
+		};
+		35586FD720294CB1001D3BF2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 35B825D82017F5FE003A4CA1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 35586FBB20294CB1001D3BF2;
+			remoteInfo = WatchTDD;
+		};
 		35B825FA2017F5FE003A4CA1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 35B825D82017F5FE003A4CA1 /* Project object */;
@@ -43,6 +64,31 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		35586FDF20294CB1001D3BF2 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				35586FC920294CB1001D3BF2 /* WatchTDD Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		35586FE120294CB1001D3BF2 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				35586FD920294CB1001D3BF2 /* WatchTDD.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		058829546274E4F08C188263 /* Pods-WunderTDD.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WunderTDD.release.xcconfig"; path = "Pods/Target Support Files/Pods-WunderTDD/Pods-WunderTDD.release.xcconfig"; sourceTree = "<group>"; };
 		3542A6272017FEA0002E8A8E /* WWunderAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WWunderAPI.swift; sourceTree = "<group>"; };
@@ -51,6 +97,16 @@
 		3542A62C20181906002E8A8E /* WWeatheTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WWeatheTableViewCell.swift; sourceTree = "<group>"; };
 		35509A7C201B0A8900669891 /* URLComponentsFPPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = URLComponentsFPPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		35509A7D201B0B1C00669891 /* String+URLComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+URLComponents.swift"; sourceTree = "<group>"; };
+		35586FBC20294CB1001D3BF2 /* WatchTDD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WatchTDD.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		35586FBF20294CB1001D3BF2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		35586FC120294CB1001D3BF2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		35586FC320294CB1001D3BF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		35586FC820294CB1001D3BF2 /* WatchTDD Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "WatchTDD Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		35586FCF20294CB1001D3BF2 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		35586FD120294CB1001D3BF2 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		35586FD320294CB1001D3BF2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		35586FD520294CB1001D3BF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		35586FD620294CB1001D3BF2 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
 		35B825E02017F5FE003A4CA1 /* WunderTDD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WunderTDD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		35B825E32017F5FE003A4CA1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		35B825E62017F5FE003A4CA1 /* WunderTDD.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WunderTDD.xcdatamodel; sourceTree = "<group>"; };
@@ -74,6 +130,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		35586FC520294CB1001D3BF2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		35B825DD2017F5FE003A4CA1 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -116,6 +179,28 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		35586FBD20294CB1001D3BF2 /* WatchTDD */ = {
+			isa = PBXGroup;
+			children = (
+				35586FBE20294CB1001D3BF2 /* Interface.storyboard */,
+				35586FC120294CB1001D3BF2 /* Assets.xcassets */,
+				35586FC320294CB1001D3BF2 /* Info.plist */,
+			);
+			path = WatchTDD;
+			sourceTree = "<group>";
+		};
+		35586FCC20294CB1001D3BF2 /* WatchTDD Extension */ = {
+			isa = PBXGroup;
+			children = (
+				35586FCF20294CB1001D3BF2 /* ExtensionDelegate.swift */,
+				35586FD120294CB1001D3BF2 /* NotificationController.swift */,
+				35586FD320294CB1001D3BF2 /* Assets.xcassets */,
+				35586FD520294CB1001D3BF2 /* Info.plist */,
+				35586FD620294CB1001D3BF2 /* PushNotificationPayload.apns */,
+			);
+			path = "WatchTDD Extension";
+			sourceTree = "<group>";
+		};
 		35B825D72017F5FE003A4CA1 = {
 			isa = PBXGroup;
 			children = (
@@ -126,6 +211,8 @@
 				35B825E22017F5FE003A4CA1 /* WunderTDD */,
 				35B825FC2017F5FE003A4CA1 /* WunderTDDTests */,
 				35B826072017F5FE003A4CA1 /* WunderTDDUITests */,
+				35586FBD20294CB1001D3BF2 /* WatchTDD */,
+				35586FCC20294CB1001D3BF2 /* WatchTDD Extension */,
 				35B825E12017F5FE003A4CA1 /* Products */,
 				2E12740B207843C7DD9858E6 /* Pods */,
 				03DFCB878DCCB9BFCF2A998F /* Frameworks */,
@@ -138,6 +225,8 @@
 				35B825E02017F5FE003A4CA1 /* WunderTDD.app */,
 				35B825F92017F5FE003A4CA1 /* WunderTDDTests.xctest */,
 				35B826042017F5FE003A4CA1 /* WunderTDDUITests.xctest */,
+				35586FBC20294CB1001D3BF2 /* WatchTDD.app */,
+				35586FC820294CB1001D3BF2 /* WatchTDD Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -183,6 +272,40 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		35586FBB20294CB1001D3BF2 /* WatchTDD */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 35586FE020294CB1001D3BF2 /* Build configuration list for PBXNativeTarget "WatchTDD" */;
+			buildPhases = (
+				35586FBA20294CB1001D3BF2 /* Resources */,
+				35586FDF20294CB1001D3BF2 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				35586FCB20294CB1001D3BF2 /* PBXTargetDependency */,
+			);
+			name = WatchTDD;
+			productName = WatchTDD;
+			productReference = 35586FBC20294CB1001D3BF2 /* WatchTDD.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		35586FC720294CB1001D3BF2 /* WatchTDD Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 35586FDE20294CB1001D3BF2 /* Build configuration list for PBXNativeTarget "WatchTDD Extension" */;
+			buildPhases = (
+				35586FC420294CB1001D3BF2 /* Sources */,
+				35586FC520294CB1001D3BF2 /* Frameworks */,
+				35586FC620294CB1001D3BF2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "WatchTDD Extension";
+			productName = "WatchTDD Extension";
+			productReference = 35586FC820294CB1001D3BF2 /* WatchTDD Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
 		35B825DF2017F5FE003A4CA1 /* WunderTDD */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 35B8260D2017F5FE003A4CA1 /* Build configuration list for PBXNativeTarget "WunderTDD" */;
@@ -193,10 +316,12 @@
 				35B825DE2017F5FE003A4CA1 /* Resources */,
 				0D73C234EB4CA0EBDECE6C12 /* [CP] Embed Pods Frameworks */,
 				AEF0E62F68BFD577241536FC /* [CP] Copy Pods Resources */,
+				35586FE120294CB1001D3BF2 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				35586FD820294CB1001D3BF2 /* PBXTargetDependency */,
 			);
 			name = WunderTDD;
 			productName = WunderTDD;
@@ -249,6 +374,14 @@
 				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = "William Thompson";
 				TargetAttributes = {
+					35586FBB20294CB1001D3BF2 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					35586FC720294CB1001D3BF2 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
 					35B825DF2017F5FE003A4CA1 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
@@ -281,11 +414,30 @@
 				35B825DF2017F5FE003A4CA1 /* WunderTDD */,
 				35B825F82017F5FE003A4CA1 /* WunderTDDTests */,
 				35B826032017F5FE003A4CA1 /* WunderTDDUITests */,
+				35586FBB20294CB1001D3BF2 /* WatchTDD */,
+				35586FC720294CB1001D3BF2 /* WatchTDD Extension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		35586FBA20294CB1001D3BF2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				35586FC220294CB1001D3BF2 /* Assets.xcassets in Resources */,
+				35586FC020294CB1001D3BF2 /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		35586FC620294CB1001D3BF2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				35586FD420294CB1001D3BF2 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		35B825DE2017F5FE003A4CA1 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -369,6 +521,15 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		35586FC420294CB1001D3BF2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				35586FD220294CB1001D3BF2 /* NotificationController.swift in Sources */,
+				35586FD020294CB1001D3BF2 /* ExtensionDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		35B825DC2017F5FE003A4CA1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -404,6 +565,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		35586FCB20294CB1001D3BF2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 35586FC720294CB1001D3BF2 /* WatchTDD Extension */;
+			targetProxy = 35586FCA20294CB1001D3BF2 /* PBXContainerItemProxy */;
+		};
+		35586FD820294CB1001D3BF2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 35586FBB20294CB1001D3BF2 /* WatchTDD */;
+			targetProxy = 35586FD720294CB1001D3BF2 /* PBXContainerItemProxy */;
+		};
 		35B825FB2017F5FE003A4CA1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 35B825DF2017F5FE003A4CA1 /* WunderTDD */;
@@ -417,6 +588,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		35586FBE20294CB1001D3BF2 /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				35586FBF20294CB1001D3BF2 /* Base */,
+			);
+			name = Interface.storyboard;
+			sourceTree = "<group>";
+		};
 		35B825EC2017F5FE003A4CA1 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -436,6 +615,80 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		35586FDA20294CB1001D3BF2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8SHR49PSPX;
+				IBSC_MODULE = WatchTDD_Extension;
+				INFOPLIST_FILE = WatchTDD/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.willynillyinc.WunderTDD.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 4.2;
+			};
+			name = Debug;
+		};
+		35586FDB20294CB1001D3BF2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8SHR49PSPX;
+				IBSC_MODULE = WatchTDD_Extension;
+				INFOPLIST_FILE = WatchTDD/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.willynillyinc.WunderTDD.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 4.2;
+			};
+			name = Release;
+		};
+		35586FDC20294CB1001D3BF2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8SHR49PSPX;
+				INFOPLIST_FILE = "WatchTDD Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.willynillyinc.WunderTDD.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 4.2;
+			};
+			name = Debug;
+		};
+		35586FDD20294CB1001D3BF2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8SHR49PSPX;
+				INFOPLIST_FILE = "WatchTDD Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.willynillyinc.WunderTDD.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 4.2;
+			};
+			name = Release;
+		};
 		35B8260B2017F5FE003A4CA1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -644,6 +897,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		35586FDE20294CB1001D3BF2 /* Build configuration list for PBXNativeTarget "WatchTDD Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				35586FDC20294CB1001D3BF2 /* Debug */,
+				35586FDD20294CB1001D3BF2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		35586FE020294CB1001D3BF2 /* Build configuration list for PBXNativeTarget "WatchTDD" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				35586FDA20294CB1001D3BF2 /* Debug */,
+				35586FDB20294CB1001D3BF2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		35B825DB2017F5FE003A4CA1 /* Build configuration list for PBXProject "WunderTDD" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

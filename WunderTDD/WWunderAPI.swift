@@ -34,61 +34,66 @@ class WWunderAPI: NSObject {
         let ud = UserDefaults.standard
         return ud.value(forKey: WWunderAPI.kWundergroundApiKey) as? String
     }
+   
+   public static func convertDataToWeatherStruct( data: Data?) -> WeatherJSONStruct? {
+      var weatherStructure: WeatherJSONStruct?
+      if let data = data {
+         do {
+            let decoder = JSONDecoder()
+            weatherStructure = try decoder.decode(WeatherJSONStruct.self, from: data)
+         } catch let error {
+            print(error)
+         }
+      }
+      return weatherStructure
+   }
+   
+   public enum DownloadType {
+      case kWeather
+      case kWeatherSatelliteHybridMap
+   }
+   
+   /**
+    This function contacts WeaterUndergroudn for weather information in JSON format, or a Radar Satellite gif using a city and state.
     
-/**
-This function fetches the Weather in the background.
-     
-- parameters:
-    - inCity: is a full city name with spaces permitted.
-    - inState: is a state two letter designation. OR = Oregon
-    - completion: a block of code that feeds back three additional paramters. A WeatherJSONStruct? structure for weather information, all JSON response as a String?, Error? any errors encountered
-     
-Returns through the completion block WeatherJSONStruct (Optional), JSON Response as a String (Optional), and Error if any (Optional).
-*/
-    public func fetchWeather(inCity: String, inState: String, completion: @escaping (WeatherJSONStruct?, String?, Error?) -> Void) {
-        
-        guard let apiKey = WWunderAPI.getApiKey()  else {
-            print("Configuration needed for API key")
-            
-            return
-        }
-        
-        let stateEncoded = inState.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlPathAllowed)!
-        let cityEncoded = inCity.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlPathAllowed)!
-        
-        //this first url looks at all weather stations.
-        //let url = URL(string: "https://api.wunderground.com/api/\(apiKey)/geolookup/conditions/q/\(stateEncoded)/\(cityEncoded).json")!
-        
-        //more general purpose api
-        let url = URL(string: "https://api.wunderground.com/api/" + apiKey + "/conditions/q/\(stateEncoded)/\(cityEncoded).json")!
-        
-        let request = URLRequest(url: url )
-        
-        let dataTask = fSession.dataTask(with: request) { (data, response, error) in
-            
-            if let data = data {
-                
-                do {
-                    let decoder = JSONDecoder()
-                    let jsonStruct = try decoder.decode(WeatherJSONStruct.self, from: data)
-                    
-                    let jsonString = String(data: data, encoding: .utf8)
-                    DispatchQueue.main.async {
-                        completion(jsonStruct,jsonString,error)
-                    }
-                    
-                } catch let error {
-                    print(error)
-                }
-                
-                
-            }
-            
-        }
-        dataTask.resume()
-        
-    }
-    
+    - parameters:
+       - type: any of the DownloadType kWeather or kWeatherSatelliteHybridMap
+       - city: A USA city allowing spaces
+       - state: A two letter code representing one of the USA states
+       - completion: a block of code that returns the Data? or Error? received from the remote host, where the data must then be either decoded into the WeatherJSONStruct or into a Gif depending on the call.
+    */
+   public func fetch( type: DownloadType, city: String, state: String, completion: @escaping (Data?, Error?) -> Void) {
+      
+      guard let apiKey = WWunderAPI.getApiKey()  else {
+         print("Configuration needed for API key")
+         return
+      }
+      
+      var url: URL!
+      
+      let stateEncoded = state.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlPathAllowed)!
+      let cityEncoded = city.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlPathAllowed)!
+      switch (type) {
+      case .kWeather:
+         url = URL(string: "https://api.wunderground.com/api/" + apiKey + "/conditions/q/\(stateEncoded)/\(cityEncoded).json")!
+         
+         
+      case .kWeatherSatelliteHybridMap:
+         url = URL(string: "https://api.wunderground.com/api/" + apiKey + "/animatedradar/animatedsatellite/q/\(stateEncoded)/\(cityEncoded).gif?num=6&delay=50&interval=30")!
+         
+      }
+      
+      let request = URLRequest(url: url )
+      let dataTask = fSession.dataTask(with: request) { (data, response, error) in
+         DispatchQueue.main.async {
+            completion(data,error)
+         }
+      }
+      dataTask.resume()
+   }
+   
+
+   
     fileprivate let weatherIconUrlStrings = ["https://icons.wxug.com/i/c/d/chanceflurries.gif",
         "https://icons.wxug.com/i/c/d/chancerain.gif",
         "https://icons.wxug.com/i/c/d/chancesleet.gif",
@@ -168,33 +173,5 @@ Returns through the completion block WeatherJSONStruct (Optional), JSON Response
         }
     }
 
-   /**
-    This function downloads a WeatherUnderground Radar Satellite gif using a city and state.
-    
-    - parameters:
-       - inCity: A USA city allowing spaces
-       - inState: A two letter code representing one of the USA states
-       - completion: a block of code that returns the Data? or Error? received from the remote host
-    */
-    func fetchRadarAndSatGifData(inCity: String, inState: String, completion: @escaping (Data?, Error?) -> Void) {
-        guard let apiKey = WWunderAPI.getApiKey()  else {
-            print("Configuration needed for API key")
-            
-            return
-        }
-        
-        let stateEncoded = inState.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlPathAllowed)!
-        let cityEncoded = inCity.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlPathAllowed)!
-
-        let url = URL(string: "https://api.wunderground.com/api/" + apiKey + "/animatedradar/animatedsatellite/q/\(stateEncoded)/\(cityEncoded).gif?num=6&delay=50&interval=30")!
-        
-        let request = URLRequest(url: url )
-        
-        let dataTask = fSession.dataTask(with: request) { (data, response, error) in
-                DispatchQueue.main.async {
-                    completion(data, error)
-                }
-        }
-        dataTask.resume()
-    }
+   
 }

@@ -26,13 +26,20 @@ class WWeatherDetailViewController: UIViewController {
             
             self.title = detail.cityState
             
-            fWeatherAPI.fetchRadarAndSatGifData(inCity: detail.city!, inState: detail.state!, completion: { [unowned self] (data, error) in
-                
-                if let data = data {
-                    let gifImg = UIImage.init(gifData: data)
-                    self.weatherMapView.setGifImage(gifImg, manager: self.fGifManager)
-                }
-            })
+//            fWeatherAPI.fetchRadarAndSatGifData(inCity: detail.city!, inState: detail.state!, completion: { [unowned self] (data, error) in
+//
+//                if let data = data {
+//                    let gifImg = UIImage.init(gifData: data)
+//                    self.weatherMapView.setGifImage(gifImg, manager: self.fGifManager)
+//                }
+//            })
+         fWeatherAPI.fetch( type: .kWeatherSatelliteHybridMap , city: detail.city!, state: detail.state!, completion: { [unowned self] (data, error) in
+            
+            if let data = data {
+               let gifImg = UIImage.init(gifData: data)
+               self.weatherMapView.setGifImage(gifImg, manager: self.fGifManager)
+            }
+         })
         }
     }
 
