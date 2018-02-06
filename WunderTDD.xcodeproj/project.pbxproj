@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		10939BF08BAD8B2BC5777A17 /* Pods_WunderTDD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B76E22DC1176259ED5450D4 /* Pods_WunderTDD.framework */; };
+		3523DF072029714F0087D20A /* WunderTDD.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 35B825E52017F5FE003A4CA1 /* WunderTDD.xcdatamodeld */; };
 		3542A6282017FEA0002E8A8E /* WWunderAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3542A6272017FEA0002E8A8E /* WWunderAPI.swift */; };
 		3542A62A20180831002E8A8E /* WeatherJSONStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3542A62920180831002E8A8E /* WeatherJSONStruct.swift */; };
 		3542A62D20181906002E8A8E /* WWeatheTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3542A62C20181906002E8A8E /* WWeatheTableViewCell.swift */; };
@@ -91,6 +92,9 @@
 
 /* Begin PBXFileReference section */
 		058829546274E4F08C188263 /* Pods-WunderTDD.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WunderTDD.release.xcconfig"; path = "Pods/Target Support Files/Pods-WunderTDD/Pods-WunderTDD.release.xcconfig"; sourceTree = "<group>"; };
+		3523DF0420296FD40087D20A /* WatchTDD.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WatchTDD.entitlements; sourceTree = "<group>"; };
+		3523DF05202970140087D20A /* WunderTDD.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WunderTDD.entitlements; sourceTree = "<group>"; };
+		3523DF06202970290087D20A /* WatchTDD Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "WatchTDD Extension.entitlements"; sourceTree = "<group>"; };
 		3542A6272017FEA0002E8A8E /* WWunderAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WWunderAPI.swift; sourceTree = "<group>"; };
 		3542A62920180831002E8A8E /* WeatherJSONStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherJSONStruct.swift; sourceTree = "<group>"; };
 		3542A62B2018084B002E8A8E /* JSONReturnInfo.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = JSONReturnInfo.rtf; sourceTree = "<group>"; };
@@ -182,6 +186,7 @@
 		35586FBD20294CB1001D3BF2 /* WatchTDD */ = {
 			isa = PBXGroup;
 			children = (
+				3523DF0420296FD40087D20A /* WatchTDD.entitlements */,
 				35586FBE20294CB1001D3BF2 /* Interface.storyboard */,
 				35586FC120294CB1001D3BF2 /* Assets.xcassets */,
 				35586FC320294CB1001D3BF2 /* Info.plist */,
@@ -192,6 +197,7 @@
 		35586FCC20294CB1001D3BF2 /* WatchTDD Extension */ = {
 			isa = PBXGroup;
 			children = (
+				3523DF06202970290087D20A /* WatchTDD Extension.entitlements */,
 				35586FCF20294CB1001D3BF2 /* ExtensionDelegate.swift */,
 				35586FD120294CB1001D3BF2 /* NotificationController.swift */,
 				35586FD320294CB1001D3BF2 /* Assets.xcassets */,
@@ -234,6 +240,7 @@
 		35B825E22017F5FE003A4CA1 /* WunderTDD */ = {
 			isa = PBXGroup;
 			children = (
+				3523DF05202970140087D20A /* WunderTDD.entitlements */,
 				35B825E32017F5FE003A4CA1 /* AppDelegate.swift */,
 				35B825E82017F5FE003A4CA1 /* WWeatherListViewController.swift */,
 				3542A62C20181906002E8A8E /* WWeatheTableViewCell.swift */,
@@ -377,14 +384,29 @@
 					35586FBB20294CB1001D3BF2 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					35586FC720294CB1001D3BF2 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					35B825DF2017F5FE003A4CA1 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					35B825F82017F5FE003A4CA1 = {
 						CreatedOnToolsVersion = 9.2;
@@ -526,6 +548,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				35586FD220294CB1001D3BF2 /* NotificationController.swift in Sources */,
+				3523DF072029714F0087D20A /* WunderTDD.xcdatamodeld in Sources */,
 				35586FD020294CB1001D3BF2 /* ExtensionDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -620,6 +643,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = WatchTDD/WatchTDD.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8SHR49PSPX;
 				IBSC_MODULE = WatchTDD_Extension;
@@ -639,6 +663,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = WatchTDD/WatchTDD.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8SHR49PSPX;
 				IBSC_MODULE = WatchTDD_Extension;
@@ -657,6 +682,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_ENTITLEMENTS = "WatchTDD Extension/WatchTDD Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8SHR49PSPX;
 				INFOPLIST_FILE = "WatchTDD Extension/Info.plist";
@@ -675,6 +701,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_ENTITLEMENTS = "WatchTDD Extension/WatchTDD Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8SHR49PSPX;
 				INFOPLIST_FILE = "WatchTDD Extension/Info.plist";
@@ -801,6 +828,7 @@
 			baseConfigurationReference = D901399B3AD903CE652024B0 /* Pods-WunderTDD.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = WunderTDD/WunderTDD.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8SHR49PSPX;
 				INFOPLIST_FILE = WunderTDD/Info.plist;
@@ -817,6 +845,7 @@
 			baseConfigurationReference = 058829546274E4F08C188263 /* Pods-WunderTDD.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = WunderTDD/WunderTDD.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8SHR49PSPX;
 				INFOPLIST_FILE = WunderTDD/Info.plist;
