@@ -190,29 +190,6 @@ class WWeatherListViewController: UITableViewController, NSFetchedResultsControl
             
          }
       }
-      
-      //        fWeatherAPI.fetchWeather(inCity: event.city!, inState: event.state!) { [unowned self] (weatherStruct, inJSONString, error) in
-//
-//            if let weatherStruct = weatherStruct {
-//                event.temperatureF = weatherStruct.currentObservation.temp_f
-//                event.conditions = weatherStruct.currentObservation.currentWeatherString
-//                event.windMPH = weatherStruct.currentObservation.wind_mph
-//                event.icon = weatherStruct.currentObservation.icon
-//
-//                let context = self.fetchedResultsController.managedObjectContext
-//                do {
-//                    try context.save()
-//                } catch {
-//                    // Replace this implementation with code to handle the error appropriately.
-//                    // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-//                    let nserror = error as NSError
-//                    fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
-//                }
-//
-//                self.configureCell(cell, withEvent: event)
-//
-//            }
-//        }
     }
 
     func configureCell(_ cell: WWeatheTableViewCell, withEvent event: Event) {
