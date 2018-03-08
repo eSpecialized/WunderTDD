@@ -73,6 +73,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
          error conditions that could cause the creation of the store to fail.
         */
         let container = NSPersistentContainer(name: "WunderTDD")
+      
+         //changes to move to the app group
+         let storageDirectory = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask).first!
+         let sqliteURL = storageDirectory.appendingPathComponent("WunderTDD.sqlite")
+         let storeDescription = NSPersistentStoreDescription(url: sqliteURL)
+         storeDescription.shouldInferMappingModelAutomatically = true
+         storeDescription.shouldMigrateStoreAutomatically = true
+         container.persistentStoreDescriptions = [storeDescription]
+         //end changes
+      
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
                 // Replace this implementation with code to handle the error appropriately.

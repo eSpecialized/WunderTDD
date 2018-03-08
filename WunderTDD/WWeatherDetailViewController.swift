@@ -26,7 +26,7 @@ class WWeatherDetailViewController: UIViewController {
             
             self.title = detail.cityState
             
-         fWeatherAPI.fetch( type: .kWeatherSatelliteHybridMap , city: detail.city!, state: detail.state!, completion: { [unowned self] (data, error) in
+         _ = fWeatherAPI.fetch( type: .kWeatherSatelliteHybridMap , city: detail.city!, state: detail.state!, completion: { [unowned self] (data, error) in
             
             if let data = data {
                let gifImg = UIImage.init(gifData: data)

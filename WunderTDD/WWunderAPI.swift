@@ -62,11 +62,12 @@ class WWunderAPI: NSObject {
        - state: A two letter code representing one of the USA states
        - completion: a block of code that returns the Data? or Error? received from the remote host, where the data must then be either decoded into the WeatherJSONStruct or into a Gif depending on the call.
     */
-   public func fetch( type: DownloadType, city: String, state: String, completion: @escaping (Data?, Error?) -> Void) {
+   public func fetch( type: DownloadType, city: String, state: String, completion: @escaping (Data?, Error?) -> Void) -> Bool {
       
       guard let apiKey = WWunderAPI.getApiKey()  else {
          print("Configuration needed for API key")
-         return
+         
+         return false
       }
       
       var url: URL!
@@ -90,6 +91,8 @@ class WWunderAPI: NSObject {
          }
       }
       dataTask.resume()
+    
+    return true
    }
    
 

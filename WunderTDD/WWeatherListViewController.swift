@@ -168,6 +168,7 @@ class WWeatherListViewController: UITableViewController, NSFetchedResultsControl
     }
     
     func updateCell(_ cell: WWeatheTableViewCell, withEvent event: Event) {
+        let bSuccess =
       fWeatherAPI.fetch( type: .kWeather, city: event.city!, state: event.state!) { [unowned self] (data, error) in
          
          if let weatherStruct = WWunderAPI.convertDataToWeatherStruct(data: data) {
@@ -190,6 +191,24 @@ class WWeatherListViewController: UITableViewController, NSFetchedResultsControl
             
          }
       }
+        
+        if !bSuccess
+        {
+            showAlert(title: "Failed to fetch", message: "Check your API key in the Config screen")
+        }
+    }
+    
+    
+    
+    func showAlert( title: String, message: String)
+    {
+        let alertAdd = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        let actionOk = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        
+        alertAdd.addAction(actionOk)
+        
+        present(alertAdd, animated: true, completion: nil)
     }
 
     func configureCell(_ cell: WWeatheTableViewCell, withEvent event: Event) {
