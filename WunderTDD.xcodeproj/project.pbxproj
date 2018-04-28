@@ -32,6 +32,8 @@
 		35B826172017F9D0003A4CA1 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 35B826162017F9D0003A4CA1 /* README.md */; };
 		35B826192017F9D8003A4CA1 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 35B826182017F9D8003A4CA1 /* LICENSE */; };
 		35B8261B2017FAFC003A4CA1 /* WConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B8261A2017FAFC003A4CA1 /* WConfigurationViewController.swift */; };
+		CE308834AA2A10ACD19E19D0 /* Pods_WunderTDDUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFE60342B79FDFD60959FBF5 /* Pods_WunderTDDUITests.framework */; };
+		CECEB6EB260149DC1D113511 /* Pods_WunderTDDTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2C0FA034CC016C231836FC9 /* Pods_WunderTDDTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +94,7 @@
 
 /* Begin PBXFileReference section */
 		058829546274E4F08C188263 /* Pods-WunderTDD.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WunderTDD.release.xcconfig"; path = "Pods/Target Support Files/Pods-WunderTDD/Pods-WunderTDD.release.xcconfig"; sourceTree = "<group>"; };
+		178E0DA748BFF26AE035EAA3 /* Pods-WunderTDDTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WunderTDDTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WunderTDDTests/Pods-WunderTDDTests.release.xcconfig"; sourceTree = "<group>"; };
 		3523DF0420296FD40087D20A /* WatchTDD.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WatchTDD.entitlements; sourceTree = "<group>"; };
 		3523DF05202970140087D20A /* WunderTDD.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WunderTDD.entitlements; sourceTree = "<group>"; };
 		3523DF06202970290087D20A /* WatchTDD Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "WatchTDD Extension.entitlements"; sourceTree = "<group>"; };
@@ -129,8 +132,13 @@
 		35B826162017F9D0003A4CA1 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		35B826182017F9D8003A4CA1 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		35B8261A2017FAFC003A4CA1 /* WConfigurationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WConfigurationViewController.swift; sourceTree = "<group>"; };
+		3993E6178D4438D22DCC7F09 /* Pods-WunderTDDTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WunderTDDTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WunderTDDTests/Pods-WunderTDDTests.debug.xcconfig"; sourceTree = "<group>"; };
 		4B76E22DC1176259ED5450D4 /* Pods_WunderTDD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WunderTDD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A2B58FD2022CF52A527DF798 /* Pods-WunderTDDUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WunderTDDUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WunderTDDUITests/Pods-WunderTDDUITests.release.xcconfig"; sourceTree = "<group>"; };
+		B2C0FA034CC016C231836FC9 /* Pods_WunderTDDTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WunderTDDTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CFE60342B79FDFD60959FBF5 /* Pods_WunderTDDUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WunderTDDUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D901399B3AD903CE652024B0 /* Pods-WunderTDD.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WunderTDD.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WunderTDD/Pods-WunderTDD.debug.xcconfig"; sourceTree = "<group>"; };
+		F02EDF844394282C9B8E10C5 /* Pods-WunderTDDUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WunderTDDUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WunderTDDUITests/Pods-WunderTDDUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +161,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CECEB6EB260149DC1D113511 /* Pods_WunderTDDTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -160,6 +169,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE308834AA2A10ACD19E19D0 /* Pods_WunderTDDUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -177,6 +187,8 @@
 			isa = PBXGroup;
 			children = (
 				4B76E22DC1176259ED5450D4 /* Pods_WunderTDD.framework */,
+				B2C0FA034CC016C231836FC9 /* Pods_WunderTDDTests.framework */,
+				CFE60342B79FDFD60959FBF5 /* Pods_WunderTDDUITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -186,6 +198,10 @@
 			children = (
 				D901399B3AD903CE652024B0 /* Pods-WunderTDD.debug.xcconfig */,
 				058829546274E4F08C188263 /* Pods-WunderTDD.release.xcconfig */,
+				3993E6178D4438D22DCC7F09 /* Pods-WunderTDDTests.debug.xcconfig */,
+				178E0DA748BFF26AE035EAA3 /* Pods-WunderTDDTests.release.xcconfig */,
+				F02EDF844394282C9B8E10C5 /* Pods-WunderTDDUITests.debug.xcconfig */,
+				A2B58FD2022CF52A527DF798 /* Pods-WunderTDDUITests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -347,9 +363,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 35B826102017F5FE003A4CA1 /* Build configuration list for PBXNativeTarget "WunderTDDTests" */;
 			buildPhases = (
+				5D1EDDBD4A70309ED853A64C /* [CP] Check Pods Manifest.lock */,
 				35B825F52017F5FE003A4CA1 /* Sources */,
 				35B825F62017F5FE003A4CA1 /* Frameworks */,
 				35B825F72017F5FE003A4CA1 /* Resources */,
+				49FAA78D4B7AA1227702B70B /* [CP] Embed Pods Frameworks */,
+				247566264413DCCDF5C14E13 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -365,9 +384,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 35B826132017F5FE003A4CA1 /* Build configuration list for PBXNativeTarget "WunderTDDUITests" */;
 			buildPhases = (
+				5B792F6EA045B8C646F03EB4 /* [CP] Check Pods Manifest.lock */,
 				35B826002017F5FE003A4CA1 /* Sources */,
 				35B826012017F5FE003A4CA1 /* Frameworks */,
 				35B826022017F5FE003A4CA1 /* Resources */,
+				0B922DF11ECFD4159CEC9041 /* [CP] Embed Pods Frameworks */,
+				14D54C8517796271CC72D9A9 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -497,6 +519,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0B922DF11ECFD4159CEC9041 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WunderTDDUITests/Pods-WunderTDDUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		0D52DB0F61739BE03EEEEEC3 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -539,6 +576,87 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WunderTDD/Pods-WunderTDD-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		14D54C8517796271CC72D9A9 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WunderTDDUITests/Pods-WunderTDDUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		247566264413DCCDF5C14E13 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WunderTDDTests/Pods-WunderTDDTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		49FAA78D4B7AA1227702B70B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WunderTDDTests/Pods-WunderTDDTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5B792F6EA045B8C646F03EB4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-WunderTDDUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5D1EDDBD4A70309ED853A64C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-WunderTDDTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		AEF0E62F68BFD577241536FC /* [CP] Copy Pods Resources */ = {
@@ -875,6 +993,7 @@
 		};
 		35B826112017F5FE003A4CA1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3993E6178D4438D22DCC7F09 /* Pods-WunderTDDTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -892,6 +1011,7 @@
 		};
 		35B826122017F5FE003A4CA1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 178E0DA748BFF26AE035EAA3 /* Pods-WunderTDDTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -909,6 +1029,7 @@
 		};
 		35B826142017F5FE003A4CA1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F02EDF844394282C9B8E10C5 /* Pods-WunderTDDUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -925,6 +1046,7 @@
 		};
 		35B826152017F5FE003A4CA1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A2B58FD2022CF52A527DF798 /* Pods-WunderTDDUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

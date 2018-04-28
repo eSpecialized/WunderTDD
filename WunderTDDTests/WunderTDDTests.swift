@@ -22,21 +22,14 @@ class WunderTDDTests: XCTestCase {
     }
     
     func testFetchWeather() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
     
-        let expectedJSONString = expectation(description: "Weather jsonString wasn't fetched properly, check all settings")
         let expectedJSONStruct = expectation(description: "Weather struct wasn't fetched properly, check all settings")
         
         let weatherAPI = WWunderAPI()
-        weatherAPI.fetchWeather(inCity: "Portland", inState: "OR") { (WeatherStruct: WeatherJSONStruct?, jsonString: String?, error: Error?) in
-            
-            if let jsonString = jsonString {
-                print(jsonString)
-                expectedJSONString.fulfill()
-            }
-            
-            if let weatherStruct = WeatherStruct {
+        _ = weatherAPI.fetch( type: .kWeather ,city: "Portland", state: "OR") { ( data: Data?, error: Error?) in
+        
+        if let weatherStruct = WWunderAPI.convertDataToWeatherStruct(data: data) {
+          
                 
                 XCTAssert(weatherStruct.currentObservation.displayLocation.city == "Portland", "Wrong city returned from API or error")
                 
@@ -62,9 +55,10 @@ class WunderTDDTests: XCTestCase {
             let expectedJSONString = expectation(description: "Weather jsonString wasn't fetched properly, check all settings")
             // Put the code you want to measure the time of here.
             let weatherAPI = WWunderAPI()
-            weatherAPI.fetchWeather(inCity: "Salem", inState: "OR") { (WeatherStruct: WeatherJSONStruct?, jsonString: String?, error: Error?) in
+            _ = weatherAPI.fetch( type: .kWeather ,city: "Portland", state: "OR") { ( data: Data?, error: Error?) in
                 
-                if let jsonString = jsonString {
+                if let data = data,
+                  let jsonString = try? JSONSerialization.jsonObject(with: data, options: .allowFragments) {
                     print(jsonString)
                     expectedJSONString.fulfill()
                 }

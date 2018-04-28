@@ -10,10 +10,10 @@ PODS:
   - SwiftyGif (4.1.0)
 
 DEPENDENCIES:
-  - RealmSwift
-  - RxCocoa
-  - RxSwift
-  - SwiftyGif
+  - RealmSwift (~> 3.5.0)
+  - RxCocoa (~> 4.1.2)
+  - RxSwift (~> 4.1.2)
+  - SwiftyGif (~> 4.1.0)
 
 SPEC CHECKSUMS:
   Realm: 0378021c424e4e2bd6a0e63b27881e929d9b9ad1
@@ -22,6 +22,6 @@ SPEC CHECKSUMS:
   RxSwift: e49536837d9901277638493ea537394d4b55f570
   SwiftyGif: d36c6dfb52e2ca1e48fe349d225f50ec4123ec85
 
-PODFILE CHECKSUM: eb64bc83529c265befe1d8914044f62bdcf606bb
+PODFILE CHECKSUM: 1a8774964e1bed0c56b5a5e44ae07808ce9b32e7
 
 COCOAPODS: 1.4.0
