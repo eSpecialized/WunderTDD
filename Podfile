@@ -7,5 +7,6 @@ target 'WunderTDD' do
    pod 'SwiftyGif'
    pod 'RxSwift'
    pod 'RxCocoa'
+   pod 'RealmSwift'
 end
 

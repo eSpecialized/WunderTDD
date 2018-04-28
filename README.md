@@ -1,5 +1,6 @@
 # WunderTDD
 -----
+https://travis-ci.org/eSpecialized/WunderTDD.svg?branch=master
 
 Wunderground weather TDD Swift
 

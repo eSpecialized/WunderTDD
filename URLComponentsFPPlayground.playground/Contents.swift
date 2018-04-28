@@ -1,6 +1,11 @@
 //: Playground - noun: a place where people can play
 
+//build the project for one of the iPhone Simulators, then come back here to use the play ground - Bill 2018-April
+//NOTE: the playground feature only works with cocoapods v 1.3.1 and 1.4.0, use bundle install to get the correct cocoapods version for this feature to work in Xcode 9.2 and 9.3
 import UIKit
+import RxSwift
+import RxCocoa
+import RealmSwift
 
 let weatherIconUrlStrings = ["https://icons.wxug.com/i/c/d/chanceflurries.gif",
                        "https://icons.wxug.com/i/c/d/chancerain.gif",
@@ -125,3 +130,8 @@ func findIconUrlString(iconName: String) -> String?
 print(findIconUrlString(iconName: "nt_rain")!)
 print(findIconUrlString(iconName: "none"))
 
+let observer = Observable.of(1,2,3,4,5)
+
+observer.subscribe(onNext: { value in
+  print(value)
+})
