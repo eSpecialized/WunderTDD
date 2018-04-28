@@ -5,5 +5,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 
 target 'WunderTDD' do
    pod 'SwiftyGif'
+   pod 'RxSwift'
+   pod 'RxCocoa'
 end
 
