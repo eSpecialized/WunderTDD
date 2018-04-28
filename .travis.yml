@@ -5,3 +5,6 @@ osx_image: xcode9.3
 os: osx
 xcode_sdk: iphonesimulator11.3
 
+before_install:
+  - gem install cocoapods -v '0.32.1'
+  - pod update
