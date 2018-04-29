@@ -9,8 +9,17 @@
 import UIKit
 import CoreData
 import SwiftyGif
+import RxSwift
+import RxCocoa
+
 
 class WWeatherListViewController: UITableViewController, NSFetchedResultsControllerDelegate {
+  
+  
+  @IBOutlet weak var configButton: UIBarButtonItem!
+  @IBOutlet weak var addButton: UIBarButtonItem!
+  
+    let bag = DisposeBag()
 
     var detailViewController: WWeatherDetailViewController? = nil
     var managedObjectContext: NSManagedObjectContext? = nil
@@ -21,27 +30,69 @@ class WWeatherListViewController: UITableViewController, NSFetchedResultsControl
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addClicked(_:)))
-        navigationItem.rightBarButtonItem = addButton
+
+        let addButton1 = UIBarButtonItem(barButtonSystemItem: .add, target: nil, action: nil)
+        navigationItem.rightBarButtonItem = addButton1
+        self.addButton = addButton1
+        addButton1.rx
+        .tap
+        .debounce(0.3, scheduler: MainScheduler.instance) //filter all but last event
+        .bind( onNext: { [weak self] _ in
+            guard let strongSelf = self else { return }
+            print("Add button tapped")
+            let alertAdd = UIAlertController(title: "Add Location", message: "City, ST format", preferredStyle: .alert)
+            
+            alertAdd.addTextField { (textField) in
+                textField.placeholder = "City, ST"
+            }
+            
+            let actionOk = UIAlertAction(title: "Ok", style: .default) {  (action) in
+                
+                if let cityState = alertAdd.textFields?.first?.text {
+                    strongSelf.insertNewObject(cityState)
+                }
+            }
+            
+            let actionCancel = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
+            
+            alertAdd.addAction(actionOk)
+            alertAdd.addAction(actionCancel)
+            
+            strongSelf.present(alertAdd, animated: true, completion: nil)
+            })
+        .disposed(by: bag)
+      
         if let split = splitViewController {
             let controllers = split.viewControllers
             detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? WWeatherDetailViewController
         }
         
+        
         self.tableView.rowHeight = UITableViewAutomaticDimension
         
+        
         refreshControl = UIRefreshControl()
-        refreshControl?.addTarget(self, action: #selector(WWeatherListViewController.refreshView), for: .valueChanged)
+        guard let refreshControl1 = refreshControl else { return }
+        let didPullToRefresh: Observable<Void> =  refreshControl1.rx.controlEvent(.valueChanged)
+        .map { refreshControl2 in
+            return refreshControl1.isRefreshing
+        }
+        .filter { $0 == true }
+        .map { [weak self] _ in
+            return ()
+        }
+      
+        didPullToRefresh
+        .subscribe({ [weak self] _ in
+            self?.refreshControl?.beginRefreshing()
+            self?.tableView.reloadData()
+            self?.refreshControl?.endRefreshing()
+        })
+        .disposed(by: bag)
+      
+      
     }
 
-    @objc
-    func refreshView() {
-        refreshControl?.beginRefreshing()
-        self.tableView.reloadData()
-        refreshControl?.endRefreshing()
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         clearsSelectionOnViewWillAppear = splitViewController!.isCollapsed
         super.viewWillAppear(animated)
@@ -51,34 +102,8 @@ class WWeatherListViewController: UITableViewController, NSFetchedResultsControl
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
-    @objc
-    func addClicked(_ sender: Any) {
-        
-        let alertAdd = UIAlertController(title: "Add Location", message: "City, ST format", preferredStyle: .alert)
-        
-        alertAdd.addTextField { (textField) in
-            textField.placeholder = "City, ST"
-        }
-        
-        let actionOk = UIAlertAction(title: "Ok", style: .default) { [unowned self] (action) in
-            if let cityState = alertAdd.textFields?.first?.text {
-                self.insertNewObject(cityState)
-            }
-        }
-        
-        let actionCancel = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
-        
-        alertAdd.addAction(actionOk)
-        alertAdd.addAction(actionCancel)
-        
-        present(alertAdd, animated: true, completion: nil)
-        
-        
-    }
-
     @objc
     func insertNewObject(_ cityState: String) {
         let context = self.fetchedResultsController.managedObjectContext
@@ -142,7 +167,7 @@ class WWeatherListViewController: UITableViewController, NSFetchedResultsControl
         let cell = tableView.dequeueReusableCell(withIdentifier: "WeatherCell", for: indexPath) as! WWeatheTableViewCell
         let event = fetchedResultsController.object(at: indexPath)
         configureCell(cell, withEvent: event)
-        updateCell(cell, withEvent: event)
+        updateCell2(cell, withEvent: event)
         return cell
     }
 
@@ -166,12 +191,13 @@ class WWeatherListViewController: UITableViewController, NSFetchedResultsControl
             }
         }
     }
-    
-    func updateCell(_ cell: WWeatheTableViewCell, withEvent event: Event) {
-        let bSuccess =
-      fWeatherAPI.fetch( type: .kWeather, city: event.city!, state: event.state!) { [unowned self] (data, error) in
-         
-         if let weatherStruct = WWunderAPI.convertDataToWeatherStruct(data: data) {
+
+  func updateCell2(_ cell: WWeatheTableViewCell, withEvent event: Event) {
+
+      fWeatherAPI.fetch( type: .kWeather, city: event.city!, state: event.state!)
+        .observeOn(MainScheduler.instance)
+        .subscribe(onNext: { weatherStruct in
+
             event.temperatureF = weatherStruct.currentObservation.temp_f
             event.conditions = weatherStruct.currentObservation.currentWeatherString
             event.windMPH = weatherStruct.currentObservation.wind_mph
@@ -179,25 +205,28 @@ class WWeatherListViewController: UITableViewController, NSFetchedResultsControl
             
             let context = self.fetchedResultsController.managedObjectContext
             do {
-               try context.save()
+              try context.save()
             } catch {
-               // Replace this implementation with code to handle the error appropriately.
-               // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-               let nserror = error as NSError
-               fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+              // Replace this implementation with code to handle the error appropriately.
+              // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+              let nserror = error as NSError
+              fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
             }
             
             self.configureCell(cell, withEvent: event)
-            
-         }
-      }
-        
-        if !bSuccess
-        {
-            showAlert(title: "Failed to fetch", message: "Check your API key in the Config screen")
+          
+        },
+          onError: { error in
+            print(error)
         }
+//            ,
+//          onCompleted: { print("onCompleted") },
+//          onDisposed: { print("onDisposed") }
+          )
+       .disposed(by: bag)
     }
-    
+
+
     
     
     func showAlert( title: String, message: String)

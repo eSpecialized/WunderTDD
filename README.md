@@ -30,7 +30,8 @@ Technologies utilized:
 7. Swift 4.0
 8. Xcode 9.2
 9. How to share code on GitHub that requires API keys to work, by using UserDefaults to store the API key and a view to configure it by.
-
+10. RxSwift, RxCocoa
+ 11. Realm for data persistance
 
 ## Motivation
 ------
@@ -71,4 +72,9 @@ Please use the following format guidelines when editing the project and source c
   See the License file.
   SwiftyGif CocoaPod is MIT licensed <https://cocoapods.org/pods/SwiftyGif>
 
+## Reactive RxSwift
+------
+  One of the ways to increase robust code in an application, and simplify closures is to use Reactive Swift (RxSwift)
+   The idea here is to introduce more Functional Programming techniques and elmination of software bugs by doing so.
+   
 

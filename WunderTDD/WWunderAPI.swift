@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RxSwift
 
 /**
 This class performs functions to fetch the weather from Wunderground using its API key.
@@ -19,7 +20,13 @@ This class performs functions to fetch the weather from Wunderground using its A
  
  */
 class WWunderAPI: NSObject {
+  
+  public enum WWunderAPIErrors: Error {
+    case kNoAPIKey,kHostNoResponse
+  }
 
+    fileprivate let bag = DisposeBag()
+  
     static fileprivate let kWundergroundApiKey = "kWundergroundApiKey"
     
     fileprivate let fSession = URLSession(configuration: URLSessionConfiguration.default)
@@ -94,6 +101,50 @@ class WWunderAPI: NSObject {
     
     return true
    }
+  
+  public func fetch( type: DownloadType, city: String, state: String) -> Observable<WeatherJSONStruct> {
+    
+    return Observable<WeatherJSONStruct>.create { [weak self] observer in
+      
+      guard let apiKey = WWunderAPI.getApiKey()  else {
+        print("Configuration needed for API key")
+        observer.onError(WWunderAPIErrors.kNoAPIKey)
+        return Disposables.create()
+      }
+      
+      var url: URL!
+      
+      let stateEncoded = state.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlPathAllowed)!
+      let cityEncoded = city.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlPathAllowed)!
+      switch (type) {
+      case .kWeather:
+        url = URL(string: "https://api.wunderground.com/api/" + apiKey + "/conditions/q/\(stateEncoded)/\(cityEncoded).json")!
+        
+        
+      case .kWeatherSatelliteHybridMap:
+        url = URL(string: "https://api.wunderground.com/api/" + apiKey + "/animatedradar/animatedsatellite/q/\(stateEncoded)/\(cityEncoded).gif?num=6&delay=50&interval=30")!
+        
+      }
+      
+      let request = URLRequest(url: url )
+      let dataTask = self?.fSession.dataTask(with: request) { (data, response, error) in
+        if let error = error {
+          observer.onError(error)
+          observer.onCompleted()
+        }
+        
+        if let data = data,
+          let weatherStruct = WWunderAPI.convertDataToWeatherStruct(data: data) {
+            observer.onNext(weatherStruct)
+            observer.onCompleted()
+        }
+      }
+      
+      dataTask?.resume()
+      
+      return Disposables.create()
+    }
+  }
    
 
    

@@ -32,6 +32,7 @@
 		35B826172017F9D0003A4CA1 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 35B826162017F9D0003A4CA1 /* README.md */; };
 		35B826192017F9D8003A4CA1 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 35B826182017F9D8003A4CA1 /* LICENSE */; };
 		35B8261B2017FAFC003A4CA1 /* WConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B8261A2017FAFC003A4CA1 /* WConfigurationViewController.swift */; };
+		35C4B25D20954493000BC490 /* CHANGELOG.md in Resources */ = {isa = PBXBuildFile; fileRef = 35C4B25C20954493000BC490 /* CHANGELOG.md */; };
 		CE308834AA2A10ACD19E19D0 /* Pods_WunderTDDUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFE60342B79FDFD60959FBF5 /* Pods_WunderTDDUITests.framework */; };
 		CECEB6EB260149DC1D113511 /* Pods_WunderTDDTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2C0FA034CC016C231836FC9 /* Pods_WunderTDDTests.framework */; };
 /* End PBXBuildFile section */
@@ -132,6 +133,7 @@
 		35B826162017F9D0003A4CA1 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		35B826182017F9D8003A4CA1 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		35B8261A2017FAFC003A4CA1 /* WConfigurationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WConfigurationViewController.swift; sourceTree = "<group>"; };
+		35C4B25C20954493000BC490 /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
 		3993E6178D4438D22DCC7F09 /* Pods-WunderTDDTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WunderTDDTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WunderTDDTests/Pods-WunderTDDTests.debug.xcconfig"; sourceTree = "<group>"; };
 		4B76E22DC1176259ED5450D4 /* Pods_WunderTDD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WunderTDD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2B58FD2022CF52A527DF798 /* Pods-WunderTDDUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WunderTDDUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WunderTDDUITests/Pods-WunderTDDUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -236,6 +238,7 @@
 				35509A7C201B0A8900669891 /* URLComponentsFPPlayground.playground */,
 				35B826182017F9D8003A4CA1 /* LICENSE */,
 				35B826162017F9D0003A4CA1 /* README.md */,
+				35C4B25C20954493000BC490 /* CHANGELOG.md */,
 				3542A62B2018084B002E8A8E /* JSONReturnInfo.rtf */,
 				35B825E22017F5FE003A4CA1 /* WunderTDD */,
 				35B825FC2017F5FE003A4CA1 /* WunderTDDTests */,
@@ -495,6 +498,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				35B825F32017F5FE003A4CA1 /* LaunchScreen.storyboard in Resources */,
+				35C4B25D20954493000BC490 /* CHANGELOG.md in Resources */,
 				35B825F02017F5FE003A4CA1 /* Assets.xcassets in Resources */,
 				35B826172017F9D0003A4CA1 /* README.md in Resources */,
 				35B825EE2017F5FE003A4CA1 /* Main.storyboard in Resources */,
