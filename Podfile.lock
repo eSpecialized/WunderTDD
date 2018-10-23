@@ -1,27 +1,35 @@
 PODS:
-  - Realm (3.5.0):
-    - Realm/Headers (= 3.5.0)
-  - Realm/Headers (3.5.0)
-  - RealmSwift (3.5.0):
-    - Realm (= 3.5.0)
-  - RxCocoa (4.1.2):
+  - Realm (3.11.1):
+    - Realm/Headers (= 3.11.1)
+  - Realm/Headers (3.11.1)
+  - RealmSwift (3.11.1):
+    - Realm (= 3.11.1)
+  - RxCocoa (4.3.1):
     - RxSwift (~> 4.0)
-  - RxSwift (4.1.2)
-  - SwiftyGif (4.1.0)
+  - RxSwift (4.3.1)
+  - SwiftyGif (4.2.0)
 
 DEPENDENCIES:
-  - RealmSwift (~> 3.5.0)
-  - RxCocoa (~> 4.1.2)
-  - RxSwift (~> 4.1.2)
-  - SwiftyGif (~> 4.1.0)
+  - RealmSwift (~> 3.11.1)
+  - RxCocoa (~> 4.3.1)
+  - RxSwift (~> 4.3.1)
+  - SwiftyGif (~> 4.2)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Realm
+    - RealmSwift
+    - RxCocoa
+    - RxSwift
+    - SwiftyGif
 
 SPEC CHECKSUMS:
-  Realm: 0378021c424e4e2bd6a0e63b27881e929d9b9ad1
-  RealmSwift: 3322562622fda2ad596985ead4d8d8be30cf838c
-  RxCocoa: d88ba0f1f6abf040011a9eb4b539324fc426843a
-  RxSwift: e49536837d9901277638493ea537394d4b55f570
-  SwiftyGif: d36c6dfb52e2ca1e48fe349d225f50ec4123ec85
+  Realm: 037c5919b9ceb59d6beed5d3b031096856b119b3
+  RealmSwift: c9580133e73ef40ed340401af2dbc9a5790dfea7
+  RxCocoa: 78763c7b07d02455598d9fc3c1ad091a28b73635
+  RxSwift: fe0fd770a43acdb7d0a53da411c9b892e69bb6e4
+  SwiftyGif: a149bf84df23370592f3f075561ae02c8632a314
 
-PODFILE CHECKSUM: 1a8774964e1bed0c56b5a5e44ae07808ce9b32e7
+PODFILE CHECKSUM: 43a29d34428b9d07481b08890cb9bac517f57c33
 
-COCOAPODS: 1.4.0
+COCOAPODS: 1.5.3

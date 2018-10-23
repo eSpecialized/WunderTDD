@@ -1,6 +1,14 @@
 # WunderTDD
 -----
 
+## Status
+-----
+I built a forwarding service for the moment for demo purposes on my blog.
+
+Wunderground API has gone private and no free keys are allowed.  I will change over to OpenWeather as a consequence so look to me releasing an Open Source Remade from WunderTDD project. This project will change to remain dormant as a consequence.
+
+[See OpenWeatherMap App for iOS](See https://github.com/eSpecialized/OpenWeatherMapApp/)
+
 [![Build Status](https://travis-ci.org/eSpecialized/WunderTDD.svg?branch=master)](https://travis-ci.org/eSpecialized/WunderTDD)
 
 Wunderground weather TDD Swift
@@ -12,6 +20,8 @@ Wunderground weather TDD Swift
 [Wunderground Weather Icons](https://www.wunderground.com/weather/api/d/docs?d=resources/icon-sets)
 
 [Youtube video showing testing](https://youtu.be/gBEju-zPcjE)
+
+
 
 
 ## Synopsis

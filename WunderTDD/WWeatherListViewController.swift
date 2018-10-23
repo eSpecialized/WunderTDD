@@ -68,27 +68,27 @@ class WWeatherListViewController: UITableViewController, NSFetchedResultsControl
         }
         
         
-        self.tableView.rowHeight = UITableViewAutomaticDimension
+        self.tableView.rowHeight = UITableView.automaticDimension
         
         
         refreshControl = UIRefreshControl()
         guard let refreshControl1 = refreshControl else { return }
         let didPullToRefresh: Observable<Void> =  refreshControl1.rx.controlEvent(.valueChanged)
-        .map { refreshControl2 in
-            return refreshControl1.isRefreshing
-        }
-        .filter { $0 == true }
-        .map { [weak self] _ in
-            return ()
-        }
+            .map { refreshControl2 in
+                return refreshControl1.isRefreshing
+            }
+            .filter { $0 == true }
+            .map {  _ in
+                return ()
+            }
       
         didPullToRefresh
-        .subscribe({ [weak self] _ in
-            self?.refreshControl?.beginRefreshing()
-            self?.tableView.reloadData()
-            self?.refreshControl?.endRefreshing()
-        })
-        .disposed(by: bag)
+            .subscribe({ [weak self] _ in
+                self?.refreshControl?.beginRefreshing()
+                self?.tableView.reloadData()
+                self?.refreshControl?.endRefreshing()
+            })
+            .disposed(by: bag)
       
       
     }
@@ -176,7 +176,7 @@ class WWeatherListViewController: UITableViewController, NSFetchedResultsControl
         return true
     }
 
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let context = fetchedResultsController.managedObjectContext
             context.delete(fetchedResultsController.object(at: indexPath))
