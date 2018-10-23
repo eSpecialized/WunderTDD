@@ -7,11 +7,15 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
-class WConfigurationViewController: UIViewController, UITextFieldDelegate {
+
+class WConfigurationViewController: UIViewController {
 
     @IBOutlet weak var apiTextField: UITextField!
-    
+  
+    let bag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,27 +23,28 @@ class WConfigurationViewController: UIViewController, UITextFieldDelegate {
         if let apiKey = WWunderAPI.getApiKey() {
             apiTextField.text = apiKey
         }
-    }
-    
-    
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        textField.becomeFirstResponder()
-    }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        return true
-    }
-    
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        resignFirstResponder()
+
+        apiTextField.rx
+        .controlEvent(UIControlEvents.editingDidBegin)
+        .subscribe(onNext: { [weak self] _ in
+            self?.apiTextField.becomeFirstResponder()
+        })
+        .disposed(by: bag)
+      
+        apiTextField.rx
+        .controlEvent(UIControlEvents.editingDidEndOnExit)
+        .filter { [weak self] _ in
+            self?.apiTextField.text?.count == 16 }
+        .subscribe(onNext: { [weak self] _ in
+            self?.resignFirstResponder()
+            guard let enteredKey = self?.apiTextField.text else {
+                return
+            }
+            WWunderAPI.saveApiKey(inApiKey: enteredKey)
+        })
+        .disposed(by: bag)
         
-        guard let enteredKey = textField.text, !enteredKey.isEmpty else {
-            print("User didn't enter any text")
-            return
-        }
-        
-        WWunderAPI.saveApiKey(inApiKey: enteredKey)
     }
-    
     
 }
+
