@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		10939BF08BAD8B2BC5777A17 /* Pods_WunderTDD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B76E22DC1176259ED5450D4 /* Pods_WunderTDD.framework */; };
 		3523DF072029714F0087D20A /* WunderTDD.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 35B825E52017F5FE003A4CA1 /* WunderTDD.xcdatamodeld */; };
 		3542A6282017FEA0002E8A8E /* WWunderAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3542A6272017FEA0002E8A8E /* WWunderAPI.swift */; };
 		3542A62A20180831002E8A8E /* WeatherJSONStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3542A62920180831002E8A8E /* WeatherJSONStruct.swift */; };
@@ -19,7 +18,6 @@
 		35586FD020294CB1001D3BF2 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35586FCF20294CB1001D3BF2 /* ExtensionDelegate.swift */; };
 		35586FD220294CB1001D3BF2 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35586FD120294CB1001D3BF2 /* NotificationController.swift */; };
 		35586FD420294CB1001D3BF2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35586FD320294CB1001D3BF2 /* Assets.xcassets */; };
-		35586FD920294CB1001D3BF2 /* WatchTDD.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 35586FBC20294CB1001D3BF2 /* WatchTDD.app */; };
 		35B825E42017F5FE003A4CA1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B825E32017F5FE003A4CA1 /* AppDelegate.swift */; };
 		35B825E72017F5FE003A4CA1 /* WunderTDD.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 35B825E52017F5FE003A4CA1 /* WunderTDD.xcdatamodeld */; };
 		35B825E92017F5FE003A4CA1 /* WWeatherListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B825E82017F5FE003A4CA1 /* WWeatherListViewController.swift */; };
@@ -33,8 +31,9 @@
 		35B826192017F9D8003A4CA1 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 35B826182017F9D8003A4CA1 /* LICENSE */; };
 		35B8261B2017FAFC003A4CA1 /* WConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B8261A2017FAFC003A4CA1 /* WConfigurationViewController.swift */; };
 		35C4B25D20954493000BC490 /* CHANGELOG.md in Resources */ = {isa = PBXBuildFile; fileRef = 35C4B25C20954493000BC490 /* CHANGELOG.md */; };
-		CE308834AA2A10ACD19E19D0 /* Pods_WunderTDDUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFE60342B79FDFD60959FBF5 /* Pods_WunderTDDUITests.framework */; };
-		CECEB6EB260149DC1D113511 /* Pods_WunderTDDTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2C0FA034CC016C231836FC9 /* Pods_WunderTDDTests.framework */; };
+		9E428027B2C867B8D95A027D /* Pods_WunderTDD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15D9A59440D6099741487158 /* Pods_WunderTDD.framework */; };
+		AC5E34886FA4EAEC7A57509B /* Pods_WunderTDDUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB09BD151A063EF3390419CE /* Pods_WunderTDDUITests.framework */; };
+		E7B984D0DE39581682BBF4AE /* Pods_WunderTDDTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FADFE0E109E15DCCA4DBCAF0 /* Pods_WunderTDDTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,13 +43,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = 35586FC720294CB1001D3BF2;
 			remoteInfo = "WatchTDD Extension";
-		};
-		35586FD720294CB1001D3BF2 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 35B825D82017F5FE003A4CA1 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 35586FBB20294CB1001D3BF2;
-			remoteInfo = WatchTDD;
 		};
 		35B825FA2017F5FE003A4CA1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -86,7 +78,6 @@
 			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
 			dstSubfolderSpec = 16;
 			files = (
-				35586FD920294CB1001D3BF2 /* WatchTDD.app in Embed Watch Content */,
 			);
 			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -94,11 +85,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		058829546274E4F08C188263 /* Pods-WunderTDD.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WunderTDD.release.xcconfig"; path = "Pods/Target Support Files/Pods-WunderTDD/Pods-WunderTDD.release.xcconfig"; sourceTree = "<group>"; };
-		178E0DA748BFF26AE035EAA3 /* Pods-WunderTDDTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WunderTDDTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WunderTDDTests/Pods-WunderTDDTests.release.xcconfig"; sourceTree = "<group>"; };
+		15D9A59440D6099741487158 /* Pods_WunderTDD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WunderTDD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D5DFB26B80F50381E15C5C8 /* Pods-WunderTDDTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WunderTDDTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WunderTDDTests/Pods-WunderTDDTests.release.xcconfig"; sourceTree = "<group>"; };
 		3523DF0420296FD40087D20A /* WatchTDD.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WatchTDD.entitlements; sourceTree = "<group>"; };
 		3523DF05202970140087D20A /* WunderTDD.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WunderTDD.entitlements; sourceTree = "<group>"; };
 		3523DF06202970290087D20A /* WatchTDD Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "WatchTDD Extension.entitlements"; sourceTree = "<group>"; };
+		3533326D217ECD8900EDF076 /* Gemfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Gemfile; sourceTree = "<group>"; };
+		3533326E217ECD9400EDF076 /* Podfile.lock */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile.lock; sourceTree = "<group>"; };
 		3542A6272017FEA0002E8A8E /* WWunderAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WWunderAPI.swift; sourceTree = "<group>"; };
 		3542A62920180831002E8A8E /* WeatherJSONStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherJSONStruct.swift; sourceTree = "<group>"; };
 		3542A62B2018084B002E8A8E /* JSONReturnInfo.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = JSONReturnInfo.rtf; sourceTree = "<group>"; };
@@ -134,13 +127,13 @@
 		35B826182017F9D8003A4CA1 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		35B8261A2017FAFC003A4CA1 /* WConfigurationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WConfigurationViewController.swift; sourceTree = "<group>"; };
 		35C4B25C20954493000BC490 /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
-		3993E6178D4438D22DCC7F09 /* Pods-WunderTDDTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WunderTDDTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WunderTDDTests/Pods-WunderTDDTests.debug.xcconfig"; sourceTree = "<group>"; };
-		4B76E22DC1176259ED5450D4 /* Pods_WunderTDD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WunderTDD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A2B58FD2022CF52A527DF798 /* Pods-WunderTDDUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WunderTDDUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WunderTDDUITests/Pods-WunderTDDUITests.release.xcconfig"; sourceTree = "<group>"; };
-		B2C0FA034CC016C231836FC9 /* Pods_WunderTDDTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WunderTDDTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		CFE60342B79FDFD60959FBF5 /* Pods_WunderTDDUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WunderTDDUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D901399B3AD903CE652024B0 /* Pods-WunderTDD.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WunderTDD.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WunderTDD/Pods-WunderTDD.debug.xcconfig"; sourceTree = "<group>"; };
-		F02EDF844394282C9B8E10C5 /* Pods-WunderTDDUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WunderTDDUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WunderTDDUITests/Pods-WunderTDDUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		42161F47F97E92F9BD9D5DD1 /* Pods-WunderTDDTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WunderTDDTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WunderTDDTests/Pods-WunderTDDTests.debug.xcconfig"; sourceTree = "<group>"; };
+		6E0FADA4AAA2ED5964B4AB9C /* Pods-WunderTDDUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WunderTDDUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WunderTDDUITests/Pods-WunderTDDUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		ADE505A9BD42766C0E591533 /* Pods-WunderTDDUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WunderTDDUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WunderTDDUITests/Pods-WunderTDDUITests.release.xcconfig"; sourceTree = "<group>"; };
+		CB09BD151A063EF3390419CE /* Pods_WunderTDDUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WunderTDDUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D8F6D5D9FD1EF6C9F458700C /* Pods-WunderTDD.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WunderTDD.release.xcconfig"; path = "Pods/Target Support Files/Pods-WunderTDD/Pods-WunderTDD.release.xcconfig"; sourceTree = "<group>"; };
+		F4C5D5819A0AF6D53F0BF635 /* Pods-WunderTDD.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WunderTDD.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WunderTDD/Pods-WunderTDD.debug.xcconfig"; sourceTree = "<group>"; };
+		FADFE0E109E15DCCA4DBCAF0 /* Pods_WunderTDDTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WunderTDDTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,7 +148,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				10939BF08BAD8B2BC5777A17 /* Pods_WunderTDD.framework in Frameworks */,
+				9E428027B2C867B8D95A027D /* Pods_WunderTDD.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -163,7 +156,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CECEB6EB260149DC1D113511 /* Pods_WunderTDDTests.framework in Frameworks */,
+				E7B984D0DE39581682BBF4AE /* Pods_WunderTDDTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -171,7 +164,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE308834AA2A10ACD19E19D0 /* Pods_WunderTDDUITests.framework in Frameworks */,
+				AC5E34886FA4EAEC7A57509B /* Pods_WunderTDDUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -185,27 +178,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		03DFCB878DCCB9BFCF2A998F /* Frameworks */ = {
+		08387915FD1DC64B8D227310 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				4B76E22DC1176259ED5450D4 /* Pods_WunderTDD.framework */,
-				B2C0FA034CC016C231836FC9 /* Pods_WunderTDDTests.framework */,
-				CFE60342B79FDFD60959FBF5 /* Pods_WunderTDDUITests.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		2E12740B207843C7DD9858E6 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				D901399B3AD903CE652024B0 /* Pods-WunderTDD.debug.xcconfig */,
-				058829546274E4F08C188263 /* Pods-WunderTDD.release.xcconfig */,
-				3993E6178D4438D22DCC7F09 /* Pods-WunderTDDTests.debug.xcconfig */,
-				178E0DA748BFF26AE035EAA3 /* Pods-WunderTDDTests.release.xcconfig */,
-				F02EDF844394282C9B8E10C5 /* Pods-WunderTDDUITests.debug.xcconfig */,
-				A2B58FD2022CF52A527DF798 /* Pods-WunderTDDUITests.release.xcconfig */,
+				F4C5D5819A0AF6D53F0BF635 /* Pods-WunderTDD.debug.xcconfig */,
+				D8F6D5D9FD1EF6C9F458700C /* Pods-WunderTDD.release.xcconfig */,
+				42161F47F97E92F9BD9D5DD1 /* Pods-WunderTDDTests.debug.xcconfig */,
+				1D5DFB26B80F50381E15C5C8 /* Pods-WunderTDDTests.release.xcconfig */,
+				6E0FADA4AAA2ED5964B4AB9C /* Pods-WunderTDDUITests.debug.xcconfig */,
+				ADE505A9BD42766C0E591533 /* Pods-WunderTDDUITests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		1E3166D7C8969831E2E1418A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				15D9A59440D6099741487158 /* Pods_WunderTDD.framework */,
+				FADFE0E109E15DCCA4DBCAF0 /* Pods_WunderTDDTests.framework */,
+				CB09BD151A063EF3390419CE /* Pods_WunderTDDUITests.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		35586FBD20294CB1001D3BF2 /* WatchTDD */ = {
@@ -235,6 +228,8 @@
 		35B825D72017F5FE003A4CA1 = {
 			isa = PBXGroup;
 			children = (
+				3533326E217ECD9400EDF076 /* Podfile.lock */,
+				3533326D217ECD8900EDF076 /* Gemfile */,
 				35509A7C201B0A8900669891 /* URLComponentsFPPlayground.playground */,
 				35B826182017F9D8003A4CA1 /* LICENSE */,
 				35B826162017F9D0003A4CA1 /* README.md */,
@@ -246,8 +241,8 @@
 				35586FBD20294CB1001D3BF2 /* WatchTDD */,
 				35586FCC20294CB1001D3BF2 /* WatchTDD Extension */,
 				35B825E12017F5FE003A4CA1 /* Products */,
-				2E12740B207843C7DD9858E6 /* Pods */,
-				03DFCB878DCCB9BFCF2A998F /* Frameworks */,
+				08387915FD1DC64B8D227310 /* Pods */,
+				1E3166D7C8969831E2E1418A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -344,18 +339,16 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 35B8260D2017F5FE003A4CA1 /* Build configuration list for PBXNativeTarget "WunderTDD" */;
 			buildPhases = (
-				0D52DB0F61739BE03EEEEEC3 /* [CP] Check Pods Manifest.lock */,
+				7A60F2E35857FF5D064CDB5B /* [CP] Check Pods Manifest.lock */,
 				35B825DC2017F5FE003A4CA1 /* Sources */,
 				35B825DD2017F5FE003A4CA1 /* Frameworks */,
 				35B825DE2017F5FE003A4CA1 /* Resources */,
-				0D73C234EB4CA0EBDECE6C12 /* [CP] Embed Pods Frameworks */,
-				AEF0E62F68BFD577241536FC /* [CP] Copy Pods Resources */,
 				35586FE120294CB1001D3BF2 /* Embed Watch Content */,
+				9A49AA5A9C3D0B44A7CFB14C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				35586FD820294CB1001D3BF2 /* PBXTargetDependency */,
 			);
 			name = WunderTDD;
 			productName = WunderTDD;
@@ -366,12 +359,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 35B826102017F5FE003A4CA1 /* Build configuration list for PBXNativeTarget "WunderTDDTests" */;
 			buildPhases = (
-				5D1EDDBD4A70309ED853A64C /* [CP] Check Pods Manifest.lock */,
+				B7CF77B686E93B36479625AA /* [CP] Check Pods Manifest.lock */,
 				35B825F52017F5FE003A4CA1 /* Sources */,
 				35B825F62017F5FE003A4CA1 /* Frameworks */,
 				35B825F72017F5FE003A4CA1 /* Resources */,
-				49FAA78D4B7AA1227702B70B /* [CP] Embed Pods Frameworks */,
-				247566264413DCCDF5C14E13 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -387,12 +378,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 35B826132017F5FE003A4CA1 /* Build configuration list for PBXNativeTarget "WunderTDDUITests" */;
 			buildPhases = (
-				5B792F6EA045B8C646F03EB4 /* [CP] Check Pods Manifest.lock */,
+				AC8AA7B73E59B89B9EF72900 /* [CP] Check Pods Manifest.lock */,
 				35B826002017F5FE003A4CA1 /* Sources */,
 				35B826012017F5FE003A4CA1 /* Frameworks */,
 				35B826022017F5FE003A4CA1 /* Resources */,
-				0B922DF11ECFD4159CEC9041 /* [CP] Embed Pods Frameworks */,
-				14D54C8517796271CC72D9A9 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -411,7 +400,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = "William Thompson";
 				TargetAttributes = {
 					35586FBB20294CB1001D3BF2 = {
@@ -523,22 +512,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0B922DF11ECFD4159CEC9041 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WunderTDDUITests/Pods-WunderTDDUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		0D52DB0F61739BE03EEEEEC3 /* [CP] Check Pods Manifest.lock */ = {
+		7A60F2E35857FF5D064CDB5B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -556,7 +530,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		0D73C234EB4CA0EBDECE6C12 /* [CP] Embed Pods Frameworks */ = {
+		9A49AA5A9C3D0B44A7CFB14C /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -582,52 +556,7 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WunderTDD/Pods-WunderTDD-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		14D54C8517796271CC72D9A9 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WunderTDDUITests/Pods-WunderTDDUITests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		247566264413DCCDF5C14E13 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WunderTDDTests/Pods-WunderTDDTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		49FAA78D4B7AA1227702B70B /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WunderTDDTests/Pods-WunderTDDTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		5B792F6EA045B8C646F03EB4 /* [CP] Check Pods Manifest.lock */ = {
+		AC8AA7B73E59B89B9EF72900 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -645,7 +574,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		5D1EDDBD4A70309ED853A64C /* [CP] Check Pods Manifest.lock */ = {
+		B7CF77B686E93B36479625AA /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -661,21 +590,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		AEF0E62F68BFD577241536FC /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WunderTDD/Pods-WunderTDD-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -731,11 +645,6 @@
 			target = 35586FC720294CB1001D3BF2 /* WatchTDD Extension */;
 			targetProxy = 35586FCA20294CB1001D3BF2 /* PBXContainerItemProxy */;
 		};
-		35586FD820294CB1001D3BF2 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 35586FBB20294CB1001D3BF2 /* WatchTDD */;
-			targetProxy = 35586FD720294CB1001D3BF2 /* PBXContainerItemProxy */;
-		};
 		35B825FB2017F5FE003A4CA1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 35B825DF2017F5FE003A4CA1 /* WunderTDD */;
@@ -790,7 +699,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 4.2;
 			};
@@ -810,7 +719,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 4.2;
 			};
@@ -829,7 +738,7 @@
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 4.2;
 			};
@@ -848,7 +757,7 @@
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 4.2;
 			};
@@ -868,6 +777,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -875,6 +785,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -925,6 +836,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -932,6 +844,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -963,7 +876,7 @@
 		};
 		35B8260E2017F5FE003A4CA1 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D901399B3AD903CE652024B0 /* Pods-WunderTDD.debug.xcconfig */;
+			baseConfigurationReference = F4C5D5819A0AF6D53F0BF635 /* Pods-WunderTDD.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = WunderTDD/WunderTDD.entitlements;
@@ -973,14 +886,14 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.willynillyinc.WunderTDD;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
 		35B8260F2017F5FE003A4CA1 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 058829546274E4F08C188263 /* Pods-WunderTDD.release.xcconfig */;
+			baseConfigurationReference = D8F6D5D9FD1EF6C9F458700C /* Pods-WunderTDD.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = WunderTDD/WunderTDD.entitlements;
@@ -990,14 +903,14 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.willynillyinc.WunderTDD;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
 		35B826112017F5FE003A4CA1 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3993E6178D4438D22DCC7F09 /* Pods-WunderTDDTests.debug.xcconfig */;
+			baseConfigurationReference = 42161F47F97E92F9BD9D5DD1 /* Pods-WunderTDDTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1007,7 +920,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.willynillyinc.WunderTDDTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WunderTDD.app/WunderTDD";
 			};
@@ -1015,7 +928,7 @@
 		};
 		35B826122017F5FE003A4CA1 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 178E0DA748BFF26AE035EAA3 /* Pods-WunderTDDTests.release.xcconfig */;
+			baseConfigurationReference = 1D5DFB26B80F50381E15C5C8 /* Pods-WunderTDDTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1025,7 +938,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.willynillyinc.WunderTDDTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WunderTDD.app/WunderTDD";
 			};
@@ -1033,7 +946,7 @@
 		};
 		35B826142017F5FE003A4CA1 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F02EDF844394282C9B8E10C5 /* Pods-WunderTDDUITests.debug.xcconfig */;
+			baseConfigurationReference = 6E0FADA4AAA2ED5964B4AB9C /* Pods-WunderTDDUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -1042,7 +955,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.willynillyinc.WunderTDDUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = WunderTDD;
 			};
@@ -1050,7 +963,7 @@
 		};
 		35B826152017F5FE003A4CA1 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A2B58FD2022CF52A527DF798 /* Pods-WunderTDDUITests.release.xcconfig */;
+			baseConfigurationReference = ADE505A9BD42766C0E591533 /* Pods-WunderTDDUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -1059,7 +972,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.willynillyinc.WunderTDDUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = WunderTDD;
 			};

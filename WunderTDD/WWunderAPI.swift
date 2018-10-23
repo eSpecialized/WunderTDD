@@ -71,11 +71,7 @@ class WWunderAPI: NSObject {
     */
    public func fetch( type: DownloadType, city: String, state: String, completion: @escaping (Data?, Error?) -> Void) -> Bool {
       
-      guard let apiKey = WWunderAPI.getApiKey()  else {
-         print("Configuration needed for API key")
-         
-         return false
-      }
+      let apiKey = ""
       
       var url: URL!
       
@@ -83,7 +79,7 @@ class WWunderAPI: NSObject {
       let cityEncoded = city.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlPathAllowed)!
       switch (type) {
       case .kWeather:
-         url = URL(string: "https://api.wunderground.com/api/" + apiKey + "/conditions/q/\(stateEncoded)/\(cityEncoded).json")!
+         url = URL(string: "https://www.blog.willandnora.com/wundertddapi.php?city=\(stateEncoded)&state=\(cityEncoded)")!
          
          
       case .kWeatherSatelliteHybridMap:
@@ -105,21 +101,15 @@ class WWunderAPI: NSObject {
   public func fetch( type: DownloadType, city: String, state: String) -> Observable<WeatherJSONStruct> {
     
     return Observable<WeatherJSONStruct>.create { [weak self] observer in
-      
-      guard let apiKey = WWunderAPI.getApiKey()  else {
-        print("Configuration needed for API key")
-        observer.onError(WWunderAPIErrors.kNoAPIKey)
-        return Disposables.create()
-      }
-      
+
+      let apiKey = ""
       var url: URL!
       
       let stateEncoded = state.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlPathAllowed)!
       let cityEncoded = city.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlPathAllowed)!
       switch (type) {
       case .kWeather:
-        url = URL(string: "https://api.wunderground.com/api/" + apiKey + "/conditions/q/\(stateEncoded)/\(cityEncoded).json")!
-        
+        url = URL(string: "https://www.blog.willandnora.com/wundertddapi.php?city=\(stateEncoded)&state=\(cityEncoded)")!
         
       case .kWeatherSatelliteHybridMap:
         url = URL(string: "https://api.wunderground.com/api/" + apiKey + "/animatedradar/animatedsatellite/q/\(stateEncoded)/\(cityEncoded).gif?num=6&delay=50&interval=30")!
