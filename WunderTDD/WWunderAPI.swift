@@ -8,17 +8,14 @@
 
 import UIKit
 import RxSwift
+import RxCocoa
+import RxAlamofire
 
-/**
-This class performs functions to fetch the weather from Wunderground using its API key.
- 
- - Author: William Thompson
- 
- - Copyright: © 2018 William Thompson. All rights reserved.
- 
- - License: MIT licensed, see the LICENSE file for details.
- 
- */
+//https://gist.github.com/alskipp/e71f014c8f8a9aa12b8d8f8053b67d72
+func ignoreNil<Wheat>(x: Wheat?) -> Observable<Wheat> {
+    return x.map { Observable.just($0) } ?? Observable.empty()
+}
+
 class WWunderAPI: NSObject {
   
   public enum WWunderAPIErrors: Error {
@@ -37,12 +34,15 @@ class WWunderAPI: NSObject {
         ud.synchronize()
     }
     
-    public static func getApiKey() -> String? {
+    public static func getApiKey() -> String {
         let ud = UserDefaults.standard
-        return ud.value(forKey: WWunderAPI.kWundergroundApiKey) as? String
+        if let theVal = ud.value(forKey: WWunderAPI.kWundergroundApiKey) as? String {
+            return theVal
+        }
+        return ""
     }
    
-   public static func convertDataToWeatherStruct( data: Data?) -> WeatherJSONStruct? {
+   public static func convert( data: Data?) -> WeatherJSONStruct? {
       var weatherStructure: WeatherJSONStruct?
       if let data = data {
          do {
@@ -60,83 +60,37 @@ class WWunderAPI: NSObject {
       case kWeatherSatelliteHybridMap
    }
    
-   /**
-    This function contacts WeaterUndergroudn for weather information in JSON format, or a Radar Satellite gif using a city and state.
-    
-    - parameters:
-       - type: any of the DownloadType kWeather or kWeatherSatelliteHybridMap
-       - city: A USA city allowing spaces
-       - state: A two letter code representing one of the USA states
-       - completion: a block of code that returns the Data? or Error? received from the remote host, where the data must then be either decoded into the WeatherJSONStruct or into a Gif depending on the call.
-    */
-   public func fetch( type: DownloadType, city: String, state: String, completion: @escaping (Data?, Error?) -> Void) -> Bool {
-      
-      let apiKey = ""
-      
-      var url: URL!
-      
-      let stateEncoded = state.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlPathAllowed)!
-      let cityEncoded = city.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlPathAllowed)!
-      switch (type) {
-      case .kWeather:
-         url = URL(string: "https://www.blog.willandnora.com/wundertddapi.php?city=\(stateEncoded)&state=\(cityEncoded)")!
-         
-         
-      case .kWeatherSatelliteHybridMap:
-         url = URL(string: "https://api.wunderground.com/api/" + apiKey + "/animatedradar/animatedsatellite/q/\(stateEncoded)/\(cityEncoded).gif?num=6&delay=50&interval=30")!
-         
-      }
-      
-      let request = URLRequest(url: url )
-      let dataTask = fSession.dataTask(with: request) { (data, response, error) in
-         DispatchQueue.main.async {
-            completion(data,error)
-         }
-      }
-      dataTask.resume()
-    
-    return true
-   }
-  
   public func fetch( type: DownloadType, city: String, state: String) -> Observable<WeatherJSONStruct> {
-    
-    return Observable<WeatherJSONStruct>.create { [weak self] observer in
+        guard
+            let stateEncoded = state.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlPathAllowed),
+            let cityEncoded = city.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlPathAllowed) else {
+                return Observable.empty()
+            }
 
-      let apiKey = ""
-      var url: URL!
-      
-      let stateEncoded = state.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlPathAllowed)!
-      let cityEncoded = city.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlPathAllowed)!
-      switch (type) {
-      case .kWeather:
-        url = URL(string: "https://www.blog.willandnora.com/wundertddapi.php?city=\(stateEncoded)&state=\(cityEncoded)")!
-        
-      case .kWeatherSatelliteHybridMap:
-        url = URL(string: "https://api.wunderground.com/api/" + apiKey + "/animatedradar/animatedsatellite/q/\(stateEncoded)/\(cityEncoded).gif?num=6&delay=50&interval=30")!
-        
-      }
-      
-      let request = URLRequest(url: url )
-      let dataTask = self?.fSession.dataTask(with: request) { (data, response, error) in
-        if let error = error {
-          observer.onError(error)
-          observer.onCompleted()
-        }
-        
-        if let data = data,
-          let weatherStruct = WWunderAPI.convertDataToWeatherStruct(data: data) {
-            observer.onNext(weatherStruct)
-            observer.onCompleted()
-        }
-      }
-      
-      dataTask?.resume()
-      
-      return Disposables.create()
+        let url = "https://www.blog.willandnora.com/wundertddapi.php?city=\(stateEncoded)&state=\(cityEncoded)"
+
+        return RxAlamofire.requestData(.get, url)
+            .debug()
+            .map { return WWunderAPI.convert(data: $1) }
+            .flatMap(ignoreNil)
     }
-  }
-   
-
+    
+    public func fetchMap( type: DownloadType, city: String, state: String) -> Observable<UIImage> {
+        let apiKey = WWunderAPI.getApiKey()
+        guard
+            let stateEncoded = state.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlPathAllowed),
+            let cityEncoded = city.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlPathAllowed) else {
+                return Observable.empty()
+        }
+        
+        let url = "https://api.wunderground.com/api/" + apiKey + "/animatedradar/animatedsatellite/q/\(stateEncoded)/\(cityEncoded).gif?num=6&delay=50&interval=30"
+        
+        
+        return RxAlamofire.requestData(.get, url)
+            .debug()
+            .map { return UIImage.init(gifData: $1) }
+            .flatMap(ignoreNil)
+    }
    
     fileprivate let weatherIconUrlStrings = ["https://icons.wxug.com/i/c/d/chanceflurries.gif",
         "https://icons.wxug.com/i/c/d/chancerain.gif",
@@ -202,20 +156,12 @@ class WWunderAPI: NSObject {
        - icon: is a string of the icon URL.
        - completion: a block of code that returns the Data? or Error? received from the remote host
     */
-    func fetchIconData(icon: String, completion: @escaping (Data?, Error?) -> Void )
+    func fetchIconData(icon: String) -> Observable<UIImage>
     {
-        if let iconStringResult = findIconUrlString(iconName:icon), let iconUrl = URL(string: iconStringResult)
-        {
-            let request = URLRequest(url: iconUrl )
-            
-            let dataTask = fSession.dataTask(with: request) { (data, response, error) in
-                DispatchQueue.main.async {
-                    completion(data, error)
-                }
-            }
-            dataTask.resume()
-        }
+        guard let iconStringResult = findIconUrlString(iconName:icon) else { return Observable.empty() }
+        
+        return RxAlamofire.requestData(.get, iconStringResult)
+            .map { return UIImage.init(gifData: $1) }
+            .flatMap(ignoreNil)
     }
-
-   
 }

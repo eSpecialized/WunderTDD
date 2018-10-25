@@ -8,8 +8,12 @@
 
 import UIKit
 import SwiftyGif
+import RxSwift
+import RxCocoa
 
 class WWeatherDetailViewController: UIViewController {
+    
+    let bag = DisposeBag()
 
     @IBOutlet weak var detailDescriptionLabel: UILabel!
     @IBOutlet weak var weatherMapView: UIImageView!
@@ -18,42 +22,37 @@ class WWeatherDetailViewController: UIViewController {
     let fGifManager = SwiftyGifManager(memoryLimit: 20)
 
     func configureView() {
-        // Update the user interface for the detail item.
-        if let detail = detailItem {
-            if let label = detailDescriptionLabel {
-                label.text = "Conditions: " +  detail.conditions!
-            }
-            
-            self.title = detail.cityState
-            
-         _ = fWeatherAPI.fetch( type: .kWeatherSatelliteHybridMap , city: detail.city!, state: detail.state!, completion: { [unowned self] (data, error) in
-            
-            if let data = data {
-               let gifImg = UIImage.init(gifData: data)
-               self.weatherMapView.setGifImage(gifImg, manager: self.fGifManager)
-            }
-         })
+        guard let detail = detailItem,
+            let city = detail.city,
+            let state = detail.state
+            else { return }
+        if let label = detailDescriptionLabel,
+            let conditions = detail.conditions {
+            label.text = "Conditions: " + conditions
         }
+            
+        self.title = detail.cityState
+
+        fWeatherAPI.fetchMap(type: .kWeatherSatelliteHybridMap, city: city, state: state)
+            .subscribe(onNext: { [weak self] in
+                self?.weatherMapView.setGifImage($0, manager: self!.fGifManager)
+            })
+            .disposed(by: bag)
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         configureView()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     var detailItem: Event? {
         didSet {
-            // Update the view.
             configureView()
         }
     }
 
-
 }
-

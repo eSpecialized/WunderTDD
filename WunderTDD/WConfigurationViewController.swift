@@ -20,10 +20,9 @@ class WConfigurationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let apiKey = WWunderAPI.getApiKey() {
-            apiTextField.text = apiKey
-        }
-
+        let apiKey = WWunderAPI.getApiKey()
+        apiTextField.text = apiKey
+        
         apiTextField.rx
         .controlEvent(UIControlEvents.editingDidBegin)
         .subscribe(onNext: { [weak self] _ in

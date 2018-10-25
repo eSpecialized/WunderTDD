@@ -251,15 +251,13 @@ class WWeatherListViewController: UITableViewController, NSFetchedResultsControl
             if icon == "..." {
                 return
             }
+            fWeatherAPI.fetchIconData(icon: icon)
+                .subscribe(onNext: { [weak self] in
+                    guard let strongSelf = self else { return }
+                    cell.icon.setGifImage($0, manager: strongSelf.fGifManager)
+                })
+                .disposed(by: bag)
             
-            fWeatherAPI.fetchIconData(icon: icon, completion: { [unowned self] (data, error) in
-                
-                //this library crashes. so looking else where for icons
-                if let data = data {
-                    let gifImg = UIImage.init(gifData: data)
-                    cell.icon.setGifImage(gifImg, manager: self.fGifManager)
-                }
-            })
         }
     }
 
