@@ -1,0 +1,11 @@
+framework module URITemplate {
+  umbrella header "URITemplate-umbrella.h"
+
+  export *
+  module * { export * }
+}
+
+module URITemplate.Swift {
+    header "URITemplate-Swift.h"
+    requires objc
+}

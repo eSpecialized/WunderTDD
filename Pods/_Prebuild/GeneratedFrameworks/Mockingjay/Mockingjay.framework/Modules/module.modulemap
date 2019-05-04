@@ -1,0 +1,11 @@
+framework module Mockingjay {
+  umbrella header "Mockingjay-umbrella.h"
+
+  export *
+  module * { export * }
+}
+
+module Mockingjay.Swift {
+    header "Mockingjay-Swift.h"
+    requires objc
+}

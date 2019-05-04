@@ -1,0 +1,12 @@
+ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES
+FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/Log4swift" "${PODS_CONFIGURATION_BUILD_DIR}/SnapKit" "${PODS_ROOT}/Alamofire" "${PODS_ROOT}/Realm" "${PODS_ROOT}/RealmSwift" "${PODS_ROOT}/RxAlamofire" "${PODS_ROOT}/RxSwift" "${PODS_ROOT}/RxAtomic" "${PODS_ROOT}/RxCocoa" "${PODS_ROOT}/SwiftyGif" "$(PLATFORM_DIR)/Developer/Library/Frameworks" "${PODS_ROOT}/Mockingjay" "${PODS_ROOT}/URITemplate" "${PODS_ROOT}/RxTest"
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
+LD_RUNPATH_SEARCH_PATHS = $(inherited) '@executable_path/Frameworks' '@loader_path/Frameworks'
+LIBRARY_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Realm/core"
+OTHER_CFLAGS = $(inherited) -iquote "${PODS_CONFIGURATION_BUILD_DIR}/Log4swift/Log4swift.framework/Headers" -iquote "${PODS_CONFIGURATION_BUILD_DIR}/SnapKit/SnapKit.framework/Headers"
+OTHER_LDFLAGS = $(inherited) -ObjC -l"c++" -l"realmcore-ios" -l"z" -framework "Alamofire" -framework "Foundation" -framework "Log4swift" -framework "Mockingjay" -framework "Realm" -framework "RealmSwift" -framework "RxAlamofire" -framework "RxAtomic" -framework "RxCocoa" -framework "RxSwift" -framework "RxTest" -framework "Security" -framework "SnapKit" -framework "SwiftyGif" -framework "URITemplate" -framework "XCTest"
+OTHER_SWIFT_FLAGS = $(inherited) "-D" "COCOAPODS"
+PODS_BUILD_DIR = ${BUILD_DIR}
+PODS_CONFIGURATION_BUILD_DIR = ${PODS_BUILD_DIR}/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
+PODS_PODFILE_DIR_PATH = ${SRCROOT}/.
+PODS_ROOT = ${SRCROOT}/Pods

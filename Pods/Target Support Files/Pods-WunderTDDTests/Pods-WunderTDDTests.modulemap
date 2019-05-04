@@ -1,0 +1,6 @@
+framework module Pods_WunderTDDTests {
+  umbrella header "Pods-WunderTDDTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

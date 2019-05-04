@@ -1,0 +1,69 @@
+PODS:
+  - Alamofire (4.7.3)
+  - Mockingjay (2.0.1):
+    - Mockingjay/Core (= 2.0.1)
+    - Mockingjay/XCTest (= 2.0.1)
+  - Mockingjay/Core (2.0.1):
+    - URITemplate (~> 2.0)
+  - Mockingjay/XCTest (2.0.1):
+    - Mockingjay/Core
+  - Realm (3.11.2):
+    - Realm/Headers (= 3.11.2)
+  - Realm/Headers (3.11.2)
+  - RealmSwift (3.11.2):
+    - Realm (= 3.11.2)
+  - RxAlamofire (4.3.0):
+    - RxAlamofire/Core (= 4.3.0)
+  - RxAlamofire/Core (4.3.0):
+    - Alamofire (~> 4.5)
+    - RxSwift (~> 4)
+  - RxAtomic (4.4.0)
+  - RxCocoa (4.4.0):
+    - RxSwift (~> 4.0)
+  - RxSwift (4.4.0):
+    - RxAtomic (~> 4.4)
+  - RxTest (4.4.0):
+    - RxAtomic (~> 4.4)
+    - RxSwift (~> 4.0)
+  - SwiftyGif (4.2.0)
+  - URITemplate (2.0.3)
+
+DEPENDENCIES:
+  - Mockingjay
+  - RealmSwift (~> 3.11.2)
+  - RxAlamofire (~> 4.3.0)
+  - RxCocoa (~> 4.4.0)
+  - RxSwift (~> 4.4.0)
+  - RxTest (= 4.4.0)
+  - SwiftyGif (~> 4.2)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - Mockingjay
+    - Realm
+    - RealmSwift
+    - RxAlamofire
+    - RxAtomic
+    - RxCocoa
+    - RxSwift
+    - RxTest
+    - SwiftyGif
+    - URITemplate
+
+SPEC CHECKSUMS:
+  Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
+  Mockingjay: 11a621880d2887f1775bdcf824341eb68f218450
+  Realm: 864477d028db77f7c5a0cba64a4892ad53db128a
+  RealmSwift: 12b8262fc08020b47de4fd88eb3d5c9425b34ec7
+  RxAlamofire: 09624d0f2d48ed8b686e4eb4cf68e28cbd2df556
+  RxAtomic: eacf60db868c96bfd63320e28619fe29c179656f
+  RxCocoa: df63ebf7b9a70d6b4eeea407ed5dd4efc8979749
+  RxSwift: 5976ecd04fc2fefd648827c23de5e11157faa973
+  RxTest: 19d03286bdc0a3aaea5d61d4cde31fdf4bb8a5ba
+  SwiftyGif: a149bf84df23370592f3f075561ae02c8632a314
+  URITemplate: ace0c4c46dcf8afe6e89b4060621852886b15c3b
+
+PODFILE CHECKSUM: b11ec2ef4a259cff946d0d559dfa2e305c623bb4
+
+COCOAPODS: 1.5.3
